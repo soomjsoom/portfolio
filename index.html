@@ -4,964 +4,864 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>전수민 · 사업운영 & 그로스 리더</title>
-<meta name="description" content="서비스 사업운영 및 그로스 리더 전수민의 포트폴리오. P&L 기반 수익성 관리, CRM 리텐션, 운영 표준화, 직접 구축한 운영 도구들을 확인하세요.">
+<meta name="description" content="사업운영 및 그로스 리더 전수민의 포트폴리오. P&L·KPI 기반 수익성 관리, CRM 리텐션, SOP 표준화, 직접 설계한 데이터 도구들을 확인하세요.">
 <meta property="og:title" content="전수민 · 사업운영 & 그로스 리더">
-<meta property="og:description" content="데이터로 운영을 설계하고, 수익을 만드는 사업운영 전문가">
+<meta property="og:description" content="데이터 기반으로 운영 체계를 설계하고, 수익성과 리텐션을 개선하는 사업운영 리더">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
 <style>
-/* ===== TOKENS ===== */
+/* ─────────────────────────────
+   DESIGN TOKENS
+───────────────────────────── */
 :root {
-  --bg: #f6f5f1;
-  --surface: #ffffff;
-  --surface-2: #f0efe9;
-  --border: #e4e1d8;
-  --border-soft: #eeece6;
-  --text: #111110;
-  --text-muted: #6b6861;
-  --text-subtle: #a19e99;
+  --bg:           #f6f5f1;
+  --surface:      #ffffff;
+  --surface-2:    #f0efe9;
+  --border:       #e4e1d8;
+  --border-soft:  #eeece6;
+  --text:         #111110;
+  --text-muted:   #6b6861;
+  --text-subtle:  #a19e99;
 
-  --blue: #1d4ed8;
-  --blue-light: #eff6ff;
-  --blue-dark: #1e3a8a;
-  --red: #dc2626;
-  --red-light: #fef2f2;
-  --green: #059669;
-  --green-light: #ecfdf5;
-  --amber: #d97706;
-  --amber-light: #fffbeb;
+  --blue:         #1d4ed8;
+  --blue-hover:   #1e3a8a;
+  --blue-light:   #eff6ff;
+  --blue-mid:     rgba(29,78,216,0.12);
+  --red:          #dc2626;
+  --red-light:    #fef2f2;
+  --green:        #059669;
+  --green-light:  #ecfdf5;
+  --amber:        #d97706;
+  --amber-light:  #fffbeb;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-full: 999px;
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-full: 999px;
 
-  --shadow-xs: 0 1px 2px rgba(17,17,16,0.04);
-  --shadow-sm: 0 2px 8px rgba(17,17,16,0.06);
-  --shadow-md: 0 8px 24px rgba(17,17,16,0.08);
-  --shadow-lg: 0 20px 48px rgba(17,17,16,0.10);
-  --shadow-xl: 0 32px 64px rgba(17,17,16,0.12);
+  --shadow-sm: 0 1px 3px rgba(17,17,16,0.06), 0 1px 2px rgba(17,17,16,0.04);
+  --shadow-md: 0 6px 20px rgba(17,17,16,0.07), 0 2px 6px rgba(17,17,16,0.04);
+  --shadow-lg: 0 16px 40px rgba(17,17,16,0.09), 0 4px 12px rgba(17,17,16,0.05);
+  --shadow-xl: 0 28px 56px rgba(17,17,16,0.11), 0 8px 20px rgba(17,17,16,0.06);
 
-  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 0.22s;
 }
 
-/* ===== RESET ===== */
+/* ─────────────────────────────
+   RESET & BASE
+───────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+               'Helvetica Neue', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.014em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
-/* ===== SCROLL PROGRESS ===== */
-#scroll-progress {
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ─────────────────────────────
+   SCROLL PROGRESS
+───────────────────────────── */
+#progress {
   position: fixed;
   top: 0; left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, var(--blue), #6366f1, var(--blue));
+  background: linear-gradient(90deg, var(--blue) 0%, #6366f1 50%, var(--blue) 100%);
   z-index: 9999;
-  transition: width 0.1s linear;
+  transition: width 0.08s linear;
+  pointer-events: none;
 }
 
-/* ===== LAYOUT ===== */
-.container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
-.container-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+/* ─────────────────────────────
+   LAYOUT
+───────────────────────────── */
+.wrap  { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+.wrap-sm { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
-/* ===== NAV ===== */
+/* ─────────────────────────────
+   NAV
+───────────────────────────── */
 .nav {
   position: sticky;
-  top: 0;
-  z-index: 200;
-  background: rgba(246, 245, 241, 0.82);
+  top: 0; z-index: 200;
+  background: rgba(246,245,241,.84);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--border-soft);
 }
 .nav-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 32px;
+  max-width: 960px; margin: 0 auto; padding: 0 32px;
   height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
 }
 .nav-brand {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.02em;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: -0.02em; white-space: nowrap;
+  flex-shrink: 0;
 }
-.nav-brand span { color: var(--blue); }
+.nav-brand em { font-style: normal; color: var(--blue); }
+
 .nav-links {
-  display: flex;
-  gap: 4px;
+  display: flex; gap: 2px;
+  overflow-x: auto; scrollbar-width: none;
 }
+.nav-links::-webkit-scrollbar { display: none; }
 .nav-links a {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 13px; font-weight: 500;
   color: var(--text-muted);
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  transition: background var(--transition), color var(--transition);
+  padding: 6px 11px; border-radius: var(--r-full);
+  white-space: nowrap;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease);
 }
-.nav-links a:hover,
-.nav-links a.active {
-  background: var(--surface);
-  color: var(--text);
+.nav-links a:hover, .nav-links a.active {
+  background: var(--surface); color: var(--text);
 }
+
 .nav-cta {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 13px; font-weight: 600;
   color: var(--blue);
-  text-decoration: none;
   padding: 7px 16px;
   border: 1.5px solid var(--blue);
-  border-radius: var(--radius-full);
-  transition: all var(--transition);
+  border-radius: var(--r-full);
+  white-space: nowrap; flex-shrink: 0;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease);
 }
-.nav-cta:hover {
-  background: var(--blue);
-  color: white;
-}
-.nav-mobile-btn {
+.nav-cta:hover { background: var(--blue); color: #fff; }
+
+/* hamburger */
+.nav-hamburger {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: var(--text);
+  background: none; border: none; cursor: pointer;
+  padding: 6px; color: var(--text);
+  flex-shrink: 0;
 }
-@media (max-width: 768px) {
+.nav-hamburger svg { display: block; }
+
+/* mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed; inset: 0; z-index: 190;
+  background: rgba(17,17,16,.45);
+}
+.nav-drawer.open { display: block; }
+.nav-drawer-panel {
+  position: absolute; top: 56px; left: 0; right: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px 20px;
+  display: flex; flex-direction: column; gap: 2px;
+  box-shadow: var(--shadow-md);
+}
+.nav-drawer-panel a {
+  font-size: 15px; font-weight: 500;
+  color: var(--text-muted);
+  padding: 10px 12px; border-radius: var(--r-md);
+  transition: background var(--t) var(--ease), color var(--t) var(--ease);
+}
+.nav-drawer-panel a:hover { background: var(--bg); color: var(--text); }
+.nav-drawer-panel .drawer-cta {
+  margin-top: 8px;
+  background: var(--blue); color: #fff;
+  text-align: center; border-radius: var(--r-full);
+  padding: 11px 12px; font-weight: 600;
+}
+.nav-drawer-panel .drawer-cta:hover { background: var(--blue-hover); }
+
+@media (max-width: 720px) {
   .nav-links, .nav-cta { display: none; }
-  .nav-mobile-btn { display: flex; align-items: center; }
+  .nav-hamburger { display: flex; }
 }
 
-/* ===== HERO ===== */
+/* ─────────────────────────────
+   HERO
+───────────────────────────── */
 .hero {
-  background: #0c1628;
-  color: white;
+  background: #0b1526;
+  color: #fff;
   position: relative;
   overflow: hidden;
-  padding: 100px 0 90px;
+  padding: 96px 0 84px;
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(29, 78, 216, 0.22) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(99, 102, 241, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 60% 80%, rgba(5, 150, 105, 0.10) 0%, transparent 60%);
-  pointer-events: none;
+    radial-gradient(ellipse 80% 55% at 15% 50%,  rgba(29,78,216,.20) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 75% at 82% 18%,  rgba(99,102,241,.13) 0%, transparent 58%),
+    radial-gradient(ellipse 38% 42% at 58% 82%,  rgba(5,150,105,.09) 0%, transparent 60%);
 }
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
+.hero-rule {
+  position: absolute; bottom: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
 }
-.hero .container { position: relative; z-index: 1; }
+.hero .wrap { position: relative; z-index: 1; }
 
 .hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 24px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .26em; text-transform: uppercase;
+  color: rgba(255,255,255,.40);
+  margin-bottom: 22px;
 }
 .hero-eyebrow::before {
-  content: '';
-  width: 24px; height: 1.5px;
-  background: var(--blue);
-  flex-shrink: 0;
+  content: ''; width: 22px; height: 1.5px;
+  background: #60a5fa; flex-shrink: 0;
 }
 
 .hero-name {
-  font-size: clamp(52px, 7vw, 80px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.0;
-  margin-bottom: 24px;
-  color: #ffffff;
+  font-size: clamp(50px, 8vw, 82px);
+  font-weight: 900; letter-spacing: -0.045em; line-height: 1.0;
+  color: #fff; margin-bottom: 22px;
 }
 .hero-name .accent { color: #60a5fa; }
 
 .hero-tagline {
-  font-size: clamp(17px, 2.2vw, 22px);
-  font-weight: 400;
-  color: rgba(255,255,255,0.62);
-  line-height: 1.55;
-  max-width: 580px;
-  margin-bottom: 44px;
+  max-width: 560px;
+  margin-bottom: 42px;
+}
+.hero-tagline p {
+  font-size: clamp(15px, 2vw, 18px);
+  font-weight: 400; line-height: 1.62;
   letter-spacing: -0.01em;
 }
-.hero-tagline strong {
-  color: rgba(255,255,255,0.88);
+.hero-tagline p:first-child {
+  font-size: clamp(16px, 2.2vw, 20px);
   font-weight: 600;
+  color: rgba(255,255,255,.86);
+  margin-bottom: 8px;
+}
+.hero-tagline p:last-child {
+  color: rgba(255,255,255,.52);
 }
 
+/* stats grid */
 .hero-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--radius-md);
+  max-width: 640px;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: var(--r-lg);
   overflow: hidden;
-  max-width: 600px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,.03);
+  margin-bottom: 42px;
 }
 .hero-stat {
-  flex: 1;
-  min-width: 130px;
-  padding: 20px 24px;
-  border-right: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 22px;
+  border-right: 1px solid rgba(255,255,255,.09);
 }
 .hero-stat:last-child { border-right: none; }
-.hero-stat-value {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: white;
-  line-height: 1.1;
-  margin-bottom: 5px;
+.hs-value {
+  font-size: clamp(20px, 2.6vw, 27px);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.1; color: #fff; margin-bottom: 5px;
   font-variant-numeric: tabular-nums;
 }
-.hero-stat-value .unit {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.5);
-}
-.hero-stat-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.02em;
-}
+.hs-value .u { font-size: .55em; font-weight: 600; color: rgba(255,255,255,.45); }
+.hs-label  { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.38); line-height: 1.4; }
+.hs-sub    { font-size: 10px; color: rgba(255,255,255,.28); margin-top: 3px;
+             white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .hero-meta {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
+  font-size: 13px; color: rgba(255,255,255,.40);
+  word-break: keep-all;
 }
 .hero-meta a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: color var(--transition);
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: flex; align-items: center; gap: 6px;
+  color: rgba(255,255,255,.58);
+  transition: color var(--t) var(--ease);
 }
-.hero-meta a:hover { color: white; }
-.hero-meta .dot {
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+.hero-meta a:hover { color: #fff; }
+.hero-meta a svg { flex-shrink: 0; }
+.hm-dot {
+  width: 3px; height: 3px; border-radius: 50%;
+  background: rgba(255,255,255,.2); flex-shrink: 0;
 }
 
-/* ===== SECTION ===== */
+/* ─────────────────────────────
+   SECTIONS
+───────────────────────────── */
 .section { padding: 88px 0; }
 .section + .section { border-top: 1px solid var(--border); }
 
-.section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.sec-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
   color: var(--text-subtle);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
-.section-label::before {
-  content: '';
-  width: 18px; height: 1.5px;
-  background: var(--blue);
-  flex-shrink: 0;
+.sec-label::before {
+  content: ''; width: 16px; height: 1.5px;
+  background: var(--blue); flex-shrink: 0;
 }
 
-.section-heading {
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
-  margin-bottom: 16px;
+.sec-heading {
+  font-size: clamp(26px, 3.6vw, 40px);
+  font-weight: 800; letter-spacing: -0.036em; line-height: 1.18;
+  margin-bottom: 14px;
+}
+.sec-desc {
+  font-size: 15px; color: var(--text-muted);
+  line-height: 1.72; max-width: 640px;
+  margin-bottom: 46px;
+  word-break: keep-all;
 }
 
-.section-desc {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 640px;
+/* ─────────────────────────────
+   ABOUT
+───────────────────────────── */
+.about-body {
+  font-size: 16.5px; line-height: 1.8;
+  max-width: 720px; color: var(--text);
   margin-bottom: 48px;
+  word-break: keep-all;
 }
+.about-body p { margin-bottom: 20px; }
+.about-body p:last-child { margin-bottom: 0; }
+.about-body strong { font-weight: 700; }
 
-/* ===== ABOUT / PILLARS ===== */
-.about-intro {
-  font-size: 17px;
-  line-height: 1.78;
-  color: var(--text);
-  max-width: 720px;
-  margin-bottom: 48px;
-}
-.about-intro p { margin-bottom: 20px; }
-.about-intro p:last-child { margin-bottom: 0; }
-.about-intro strong { font-weight: 700; }
-
+/* pillar grid */
 .pillar-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 56px;
+  gap: 14px;
+  margin-bottom: 52px;
 }
-.pillar-card {
+.pillar {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 28px 30px;
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition);
+  border-radius: var(--r-xl);
+  padding: 26px 28px 28px;
+  position: relative; overflow: hidden;
+  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
 }
-.pillar-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+.pillar:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.pillar-bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; border-radius: var(--r-xl) var(--r-xl) 0 0;
 }
-.pillar-card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-.pillar-card.blue::after { background: var(--blue); }
-.pillar-card.red::after { background: var(--red); }
-.pillar-card.green::after { background: var(--green); }
-.pillar-card.amber::after { background: var(--amber); }
+.pillar.c-blue  .pillar-bar { background: var(--blue); }
+.pillar.c-red   .pillar-bar { background: var(--red); }
+.pillar.c-green .pillar-bar { background: var(--green); }
+.pillar.c-amber .pillar-bar { background: var(--amber); }
 
 .pillar-icon {
-  width: 40px; height: 40px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 16px;
-  flex-shrink: 0;
+  width: 38px; height: 38px; border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; margin-bottom: 14px;
 }
-.pillar-card.blue .pillar-icon { background: var(--blue-light); }
-.pillar-card.red .pillar-icon { background: var(--red-light); }
-.pillar-card.green .pillar-icon { background: var(--green-light); }
-.pillar-card.amber .pillar-icon { background: var(--amber-light); }
+.pillar.c-blue  .pillar-icon { background: var(--blue-light); }
+.pillar.c-red   .pillar-icon { background: var(--red-light); }
+.pillar.c-green .pillar-icon { background: var(--green-light); }
+.pillar.c-amber .pillar-icon { background: var(--amber-light); }
 
 .pillar-title {
-  font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: -0.01em; margin-bottom: 7px;
 }
-.pillar-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
+.pillar-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; word-break: keep-all; }
 
-/* ===== METRICS ===== */
+/* metrics band */
 .metrics-band {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--r-xl);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   overflow: hidden;
 }
-.metric-item {
-  padding: 28px 24px;
+.mb-item {
+  padding: 26px 22px;
   border-right: 1px solid var(--border);
-  position: relative;
 }
-.metric-item:last-child { border-right: none; }
-.metric-num {
-  font-size: 32px;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  margin-bottom: 6px;
-  color: var(--text);
+.mb-item:last-child { border-right: none; }
+.mb-num {
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 900; letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums; line-height: 1;
+  margin-bottom: 7px;
 }
-.metric-num .hi { color: var(--blue); }
-.metric-num .go { color: var(--green); }
-.metric-num .warn { color: var(--red); }
-.metric-label {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 500;
-  line-height: 1.4;
-}
+.mb-num .c-blue  { color: var(--blue); }
+.mb-num .c-green { color: var(--green); }
+.mb-num .c-red   { color: var(--red); }
+.mb-label { font-size: 12px; color: var(--text-muted); font-weight: 500; line-height: 1.55;
+            word-break: keep-all; }
 
-/* ===== EXPERIENCE TIMELINE ===== */
-.exp-total-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  padding: 8px 16px;
+/* ─────────────────────────────
+   EXPERIENCE / TIMELINE
+───────────────────────────── */
+.exp-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-full); padding: 8px 16px;
   margin-bottom: 52px;
 }
-.exp-total-badge .dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(5,150,105,0.15);
-  animation: pulse-dot 2s infinite;
+.exp-badge .live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green); flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(5,150,105,.15);
+  animation: pulse 2.2s infinite;
 }
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 3px rgba(5,150,105,0.15); }
-  50% { box-shadow: 0 0 0 6px rgba(5,150,105,0.08); }
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 3px rgba(5,150,105,.15); }
+  50%      { box-shadow: 0 0 0 6px rgba(5,150,105,.07); }
 }
 
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  position: relative;
-}
+.timeline { position: relative; }
 .timeline::before {
-  content: '';
-  position: absolute;
-  left: 19px;
-  top: 28px;
-  bottom: 28px;
-  width: 1.5px;
-  background: var(--border);
+  content: ''; position: absolute;
+  left: 19px; top: 28px; bottom: 28px;
+  width: 1.5px; background: var(--border);
 }
 
-.timeline-item {
+.tl-item {
   display: grid;
   grid-template-columns: 40px 1fr;
   gap: 24px;
   padding-bottom: 52px;
-  position: relative;
 }
-.timeline-item:last-child { padding-bottom: 0; }
+.tl-item:last-child { padding-bottom: 0; }
 
-.timeline-dot {
-  width: 40px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 6px;
-  position: relative;
-  z-index: 1;
+.tl-dot-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  padding-top: 7px; position: relative; z-index: 1; width: 40px;
 }
-.timeline-dot-circle {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 2.5px solid var(--border);
-  flex-shrink: 0;
-  transition: border-color var(--transition);
+.tl-dot {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--surface); border: 2.5px solid var(--border);
+  flex-shrink: 0; transition: border-color var(--t) var(--ease);
 }
-.timeline-item.current .timeline-dot-circle {
-  border-color: var(--blue);
-  background: var(--blue);
-  box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
+.tl-item.current .tl-dot {
+  border-color: var(--blue); background: var(--blue);
+  box-shadow: 0 0 0 4px rgba(29,78,216,.12);
 }
 
-.timeline-content {
-  padding-top: 0;
+.tl-body { padding-top: 0; }
+
+.tl-head { margin-bottom: 18px; }
+.tl-company {
+  font-size: clamp(18px, 2.5vw, 22px);
+  font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.25; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
 }
-.timeline-header {
-  margin-bottom: 20px;
-}
-.timeline-company {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.timeline-badge {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 4px;
-  background: var(--blue-light);
-  color: var(--blue);
+.tl-badge {
+  font-size: 10.5px; font-weight: 600;
+  padding: 3px 9px; border-radius: 4px;
+  background: var(--blue-light); color: var(--blue);
   letter-spacing: 0.02em;
 }
-.timeline-badge.current {
-  background: rgba(5,150,105,0.1);
-  color: var(--green);
+.tl-badge.live { background: rgba(5,150,105,.10); color: var(--green); }
+
+.tl-meta {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  font-size: 12.5px; color: var(--text-muted); font-weight: 500;
+  word-break: keep-all;
 }
-.timeline-meta {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-.timeline-meta .period {
-  font-variant-numeric: tabular-nums;
-}
-.timeline-meta .separator { color: var(--border); }
-.timeline-meta .role-tag {
-  font-size: 11px;
-  padding: 2px 8px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--text-muted);
+.tl-meta .sep { color: var(--border); }
+.tl-tag {
+  font-size: 11px; padding: 2px 8px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 4px; color: var(--text-muted);
 }
 
-.timeline-divider {
-  height: 1px;
-  background: var(--border-soft);
-  margin: 16px 0 24px;
+.tl-rule { height: 1px; background: var(--border-soft); margin: 16px 0 22px; }
+
+.tl-sub { margin-bottom: 26px; }
+.tl-sub:last-child { margin-bottom: 0; }
+.tl-sub-title {
+  font-size: 14px; font-weight: 700;
+  letter-spacing: -0.01em; margin-bottom: 3px; color: var(--text);
+}
+.tl-sub-period {
+  font-size: 11.5px; color: var(--text-subtle);
+  font-variant-numeric: tabular-nums; font-weight: 500;
+  margin-bottom: 13px;
 }
 
-.timeline-sub {
-  margin-bottom: 28px;
+.bullets {
+  list-style: none; padding: 0;
+  font-size: 13.5px; line-height: 1.72; color: var(--text);
+  display: flex; flex-direction: column; gap: 5px;
+  word-break: keep-all;
 }
-.timeline-sub:last-child { margin-bottom: 0; }
-.timeline-sub-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-  letter-spacing: -0.01em;
+.bullets li { display: flex; gap: 11px; }
+.bullets li::before {
+  content: '—'; color: var(--text-subtle); font-weight: 600;
+  flex-shrink: 0; line-height: 1.72;
 }
-.timeline-sub-period {
-  font-size: 12px;
-  color: var(--text-subtle);
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-.bullet-list {
-  list-style: none;
-  padding: 0;
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--text);
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.bullet-list li {
-  display: flex;
-  gap: 12px;
-}
-.bullet-list li::before {
-  content: '—';
-  color: var(--text-subtle);
-  font-weight: 600;
-  flex-shrink: 0;
-  line-height: 1.7;
-}
-.bullet-list li strong { font-weight: 700; }
-.highlight-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
-  background: var(--blue-light);
-  color: var(--blue);
-  margin-left: 6px;
-}
-.highlight-pill.green { background: var(--green-light); color: var(--green); }
-.highlight-pill.red { background: var(--red-light); color: var(--red); }
+.bullets strong { font-weight: 700; }
 
-/* ===== PROJECTS ===== */
-.projects-intro {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 640px;
-  margin-bottom: 40px;
+.tag-inline {
+  display: inline-flex; align-items: center;
+  font-size: 10.5px; font-weight: 700;
+  padding: 2px 7px; border-radius: 4px;
+  margin-left: 5px; vertical-align: middle;
 }
+.tag-inline.b  { background: var(--blue-light);  color: var(--blue); }
+.tag-inline.g  { background: var(--green-light); color: var(--green); }
+.tag-inline.r  { background: var(--red-light);   color: var(--red); }
 
-.project-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+/* ─────────────────────────────
+   PROJECTS
+───────────────────────────── */
+.project-list { display: flex; flex-direction: column; gap: 18px; }
 
-.project-card {
+.proj-card {
   display: grid;
-  grid-template-columns: 52px 1fr auto;
-  gap: 28px;
+  grid-template-columns: 48px 1fr auto;
+  gap: 26px;
   align-items: flex-start;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 32px 36px;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  border-radius: var(--r-xl);
+  padding: 30px 34px;
+  position: relative; overflow: hidden;
+  transition: transform var(--t) var(--ease),
+              box-shadow var(--t) var(--ease),
+              border-color var(--t) var(--ease);
+  cursor: pointer;
 }
-.project-card:hover {
+.proj-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: transparent;
 }
-.project-card::before {
-  content: '';
-  position: absolute;
+.proj-card::before {
+  content: ''; position: absolute;
   left: 0; top: 0; bottom: 0;
   width: 4px;
-  transition: width var(--transition);
+  transition: width var(--t) var(--ease);
 }
-.project-card.proj-1::before { background: linear-gradient(180deg, var(--blue), #6366f1); }
-.project-card.proj-2::before { background: linear-gradient(180deg, var(--green), #0ea5e9); }
-.project-card:hover::before { width: 6px; }
+.proj-card.p1::before { background: linear-gradient(180deg, var(--blue), #6366f1); }
+.proj-card.p2::before { background: linear-gradient(180deg, var(--green), #0ea5e9); }
+.proj-card:hover::before { width: 6px; }
 
-.project-num {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-subtle);
-  letter-spacing: 0.1em;
-  font-variant-numeric: tabular-nums;
+.proj-num {
+  font-size: 12px; font-weight: 700; color: var(--text-subtle);
+  letter-spacing: .1em; font-variant-numeric: tabular-nums;
   padding-top: 4px;
 }
-.project-title {
-  font-size: clamp(18px, 2.2vw, 24px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  margin-bottom: 4px;
-  line-height: 1.25;
+.proj-title {
+  font-size: clamp(17px, 2.2vw, 22px);
+  font-weight: 800; letter-spacing: -0.025em; line-height: 1.25;
+  margin-bottom: 3px;
 }
-.project-sub {
-  font-size: 11px;
-  color: var(--text-subtle);
-  font-weight: 500;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+.proj-sub {
+  font-size: 10.5px; color: var(--text-subtle);
+  font-weight: 500; letter-spacing: .07em;
+  text-transform: uppercase; margin-bottom: 13px;
 }
-.project-desc {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.68;
-  margin-bottom: 16px;
-  max-width: 560px;
+.proj-desc {
+  font-size: 13.5px; color: var(--text-muted);
+  line-height: 1.7; margin-bottom: 14px; max-width: 540px;
+  word-break: keep-all;
 }
-.project-desc strong { color: var(--text); font-weight: 700; }
+.proj-desc strong { color: var(--text); font-weight: 700; }
 
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
-}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .chip {
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 11px; font-weight: 500;
   padding: 4px 10px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  color: var(--text-muted);
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r-full); color: var(--text-muted);
 }
 
-.project-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 11px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  background: var(--text);
-  color: white;
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: background var(--transition), transform var(--transition);
+.proj-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 18px;
+  font-size: 13px; font-weight: 600;
+  background: var(--text); color: #fff;
+  border-radius: var(--r-full); white-space: nowrap; flex-shrink: 0;
+  transition: background var(--t) var(--ease);
 }
-.project-card:hover .project-link-btn { background: var(--blue); }
-.project-link-arrow {
-  transition: transform var(--transition);
-  display: inline-block;
-}
-.project-card:hover .project-link-arrow { transform: translateX(3px); }
+.proj-card:hover .proj-cta { background: var(--blue); }
+.proj-arrow { display: inline-block; transition: transform var(--t) var(--ease); }
+.proj-card:hover .proj-arrow { transform: translateX(3px); }
 
-/* ===== SKILLS ===== */
-.skills-layout {
+/* ─────────────────────────────
+   SKILLS
+───────────────────────────── */
+.skills-grid {
   display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 1fr 320px;
+  gap: 52px; align-items: start;
 }
-.skill-group { margin-bottom: 28px; }
-.skill-group:last-child { margin-bottom: 0; }
-.skill-group-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 12px;
+.sk-group { margin-bottom: 26px; }
+.sk-group:last-child { margin-bottom: 0; }
+.sk-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 11px;
 }
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-.skill-tag {
-  font-size: 13px;
-  font-weight: 500;
+.sk-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.sk-tag {
+  font-size: 13px; font-weight: 500;
   padding: 6px 14px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  color: var(--text);
-  transition: all var(--transition);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-full); color: var(--text);
+  transition: border-color var(--t) var(--ease),
+              color var(--t) var(--ease),
+              background var(--t) var(--ease);
 }
-.skill-tag:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+.sk-tag:hover {
+  border-color: var(--blue); color: var(--blue);
   background: var(--blue-light);
 }
 
-.edu-side { display: flex; flex-direction: column; gap: 14px; }
+.edu-col { display: flex; flex-direction: column; gap: 12px; }
 .edu-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 20px 22px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 18px 20px;
 }
-.edu-school { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-.edu-major { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+.edu-school { font-size: 14.5px; font-weight: 700; margin-bottom: 3px; }
+.edu-major  { font-size: 12.5px; color: var(--text-muted); margin-bottom: 9px; }
 .edu-period {
-  font-size: 12px;
-  color: var(--text-subtle);
+  font-size: 11.5px; color: var(--text-subtle);
   font-variant-numeric: tabular-nums;
-  padding-top: 10px;
-  border-top: 1px solid var(--border-soft);
+  padding-top: 9px; border-top: 1px solid var(--border-soft);
+}
+.edu-card.lang {
+  background: var(--blue-light);
+  border-color: rgba(29,78,216,.14);
+}
+.edu-card.lang .edu-school { color: var(--blue); }
+.edu-card.lang .edu-period { border-top-color: rgba(29,78,216,.10); }
+
+.edu-card.exchange {
+  background: var(--surface);
+  border-color: var(--border);
+  border-left: 3px solid var(--blue);
+  padding-left: 17px;
+}
+.edu-card.exchange .edu-school { color: var(--text); }
+.edu-card.exchange .edu-major  { display: flex; align-items: center; gap: 6px; }
+.edu-card.exchange .exchange-badge {
+  font-size: 10px; font-weight: 700;
+  padding: 2px 6px; border-radius: 3px;
+  background: var(--blue-light); color: var(--blue);
+  letter-spacing: .04em; flex-shrink: 0;
 }
 
-/* ===== CONTACT ===== */
-.contact-section {
-  background: #0c1628;
-  color: white;
-  padding: 100px 0;
-  position: relative;
-  overflow: hidden;
+/* ─────────────────────────────
+   CONTACT
+───────────────────────────── */
+.contact {
+  background: #0b1526; color: #fff;
+  padding: 96px 0;
+  position: relative; overflow: hidden;
 }
-.contact-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 80% 50%, rgba(29,78,216,0.18) 0%, transparent 60%);
-  pointer-events: none;
+.contact-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 75% 55% at 80% 50%, rgba(29,78,216,.16) 0%, transparent 60%);
 }
-.contact-section .container { position: relative; z-index: 1; }
-.contact-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.contact-label::before {
-  content: '';
-  width: 18px; height: 1.5px;
-  background: #60a5fa;
-}
-.contact-heading {
-  font-size: clamp(28px, 4vw, 48px);
-  font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
-  color: white;
-  margin-bottom: 16px;
-}
-.contact-sub {
-  font-size: 16px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.65;
-  max-width: 520px;
-  margin-bottom: 40px;
-}
-.contact-btns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  transition: all var(--transition);
-}
-.contact-btn.primary {
-  background: #2563eb;
-  color: white;
-  border: 1.5px solid transparent;
-}
-.contact-btn.primary:hover { background: #1d4ed8; transform: translateY(-1px); }
-.contact-btn.outline {
-  background: transparent;
-  color: rgba(255,255,255,0.7);
-  border: 1.5px solid rgba(255,255,255,0.15);
-}
-.contact-btn.outline:hover {
-  border-color: rgba(255,255,255,0.4);
-  color: white;
-}
+.contact .wrap { position: relative; z-index: 1; }
 
-/* ===== FOOTER ===== */
-footer {
-  background: #080e1a;
-  padding: 28px 0 40px;
+.ct-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.32); margin-bottom: 18px;
+}
+.ct-label::before {
+  content: ''; width: 16px; height: 1.5px;
+  background: #60a5fa; flex-shrink: 0;
+}
+.ct-heading {
+  font-size: clamp(26px, 4.2vw, 46px);
+  font-weight: 800; letter-spacing: -0.038em;
+  line-height: 1.18; color: #fff; margin-bottom: 14px;
+}
+.ct-sub {
+  font-size: 15px; color: rgba(255,255,255,.48);
+  line-height: 1.7; max-width: 500px; margin-bottom: 38px;
+  word-break: keep-all;
+}
+.ct-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.ct-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px;
+  font-size: 13.5px; font-weight: 600;
+  border-radius: var(--r-full); border: 1.5px solid transparent;
+  transition: all var(--t) var(--ease);
+}
+.ct-btn.primary {
+  background: #2563eb; color: #fff; border-color: #2563eb;
+}
+.ct-btn.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); transform: translateY(-1px); }
+.ct-btn.outline {
+  background: transparent; color: rgba(255,255,255,.65);
+  border-color: rgba(255,255,255,.14);
+}
+.ct-btn.outline:hover { border-color: rgba(255,255,255,.36); color: #fff; }
+
+/* ─────────────────────────────
+   FOOTER
+───────────────────────────── */
+.footer {
+  background: #07101e;
+  padding: 26px 0 40px;
 }
 .footer-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.22);
+  max-width: 960px; margin: 0 auto; padding: 0 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 10px;
+  font-size: 11.5px; color: rgba(255,255,255,.20);
 }
 
-/* ===== ANIMATIONS ===== */
+/* ─────────────────────────────
+   ANIMATIONS
+───────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.fade-up { animation: fadeUp 0.65s cubic-bezier(0.4, 0, 0.2, 1) both; }
-.delay-1 { animation-delay: 0.08s; }
-.delay-2 { animation-delay: 0.16s; }
-.delay-3 { animation-delay: 0.24s; }
-.delay-4 { animation-delay: 0.32s; }
-.delay-5 { animation-delay: 0.40s; }
+.fu { animation: fadeUp .65s var(--ease) both; }
+.d1 { animation-delay: .08s; }
+.d2 { animation-delay: .16s; }
+.d3 { animation-delay: .24s; }
+.d4 { animation-delay: .32s; }
+.d5 { animation-delay: .40s; }
 
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.in { opacity: 1; transform: translateY(0); }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .container, .container-narrow { padding: 0 20px; }
-  .section { padding: 64px 0; }
-  .hero { padding: 72px 0 64px; }
+/* ─────────────────────────────
+   RESPONSIVE — tablet (≤ 900px)
+───────────────────────────── */
+@media (max-width: 900px) {
+  .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+  .hero-stat:nth-child(2) { border-right: none; }
+  .hero-stat:nth-child(3) { border-top: 1px solid rgba(255,255,255,.09); }
 
-  .hero-stats { max-width: 100%; }
-  .hero-stat { min-width: 110px; padding: 16px 18px; }
-  .hero-stat-value { font-size: 22px; }
-
-  .pillar-grid { grid-template-columns: 1fr; }
   .metrics-band { grid-template-columns: repeat(2, 1fr); }
-  .metric-item:nth-child(2) { border-right: none; }
-  .metric-item:nth-child(3) { border-top: 1px solid var(--border); }
+  .mb-item:nth-child(2) { border-right: none; }
+  .mb-item:nth-child(3) { border-top: 1px solid var(--border); }
 
-  .timeline::before { left: 15px; }
-  .timeline-item { grid-template-columns: 32px 1fr; gap: 16px; }
-  .timeline-dot { width: 32px; }
-  .timeline-company { font-size: 18px; }
-
-  .project-card {
-    grid-template-columns: 1fr;
-    padding: 24px 24px 24px 28px;
-    gap: 14px;
-  }
-  .project-num { padding-top: 0; }
-  .project-title { font-size: 18px; }
-  .project-link-btn { align-self: flex-start; }
-
-  .skills-layout { grid-template-columns: 1fr; gap: 32px; }
-  .contact-heading { font-size: 28px; }
+  .skills-grid { grid-template-columns: 1fr; gap: 36px; }
 }
 
-@media (max-width: 480px) {
-  .metrics-band { grid-template-columns: 1fr 1fr; }
-  .hero-stats { flex-direction: column; }
-  .hero-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .hero-stat:last-child { border-bottom: none; }
+/* ─────────────────────────────
+   RESPONSIVE — mobile (≤ 600px)
+───────────────────────────── */
+@media (max-width: 600px) {
+  .wrap, .wrap-sm { padding: 0 20px; }
+  .section { padding: 64px 0; }
+
+  /* hero */
+  .hero { padding: 68px 0 58px; }
+  .hero-name { letter-spacing: -0.04em; }
+  .hero-tagline p:first-child { font-size: 16px; }
+  .hero-tagline p:last-child  { font-size: 14px; }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+  .hero-stat {
+    padding: 16px 16px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,.09);
+  }
+  .hero-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.09); }
+  .hero-stat:nth-child(3),
+  .hero-stat:nth-child(4)   { border-bottom: none; }
+
+  .hero-meta { gap: 12px; font-size: 12px; }
+  .hm-dot { display: none; }
+  .hero-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* pillar */
+  .pillar-grid { grid-template-columns: 1fr; }
+
+  /* metrics */
+  .metrics-band { grid-template-columns: repeat(2, 1fr); }
+  .mb-item { padding: 20px 18px; }
+  .mb-item:nth-child(2) { border-right: none; }
+  .mb-item:nth-child(3) { border-top: 1px solid var(--border); }
+
+  /* timeline */
+  .timeline::before { left: 14px; }
+  .tl-item { grid-template-columns: 30px 1fr; gap: 14px; }
+  .tl-dot-wrap { width: 30px; }
+  .tl-company { font-size: 18px; }
+  .tl-meta { gap: 7px; font-size: 12px; }
+  .bullets { font-size: 13px; }
+
+  /* project cards */
+  .proj-card {
+    grid-template-columns: 1fr;
+    padding: 22px 22px 22px 26px;
+    gap: 12px;
+  }
+  .proj-num { padding-top: 0; }
+  .proj-cta { align-self: flex-start; margin-top: 4px; }
+
+  /* skills */
+  .skills-grid { grid-template-columns: 1fr; }
+
+  /* contact */
+  .ct-heading { line-height: 1.22; }
+  .ct-btns { flex-direction: column; gap: 10px; }
+  .ct-btn { justify-content: center; }
+
+  /* footer */
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+/* ─────────────────────────────
+   RESPONSIVE — tiny (≤ 380px)
+───────────────────────────── */
+@media (max-width: 380px) {
+  .hero-stats { grid-template-columns: 1fr; }
+  .hero-stat { border-right: none !important; }
+  .hero-stat:nth-child(4) { border-bottom: none; }
+  .hs-value { font-size: 22px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Scroll Progress -->
-<div id="scroll-progress"></div>
+<!-- scroll progress -->
+<div id="progress"></div>
 
-<!-- Navigation -->
+<!-- ═══════════════════════════
+     NAVIGATION
+════════════════════════════ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#top" class="nav-brand">전수민 <span>·</span> Portfolio</a>
+    <a href="#top" class="nav-brand">전수민 <em>·</em> Portfolio</a>
     <div class="nav-links">
-      <a href="#about" data-nav>소개</a>
+      <a href="#about"      data-nav>소개</a>
       <a href="#experience" data-nav>경력</a>
-      <a href="#projects" data-nav>운영 도구</a>
-      <a href="#skills" data-nav>스킬</a>
+      <a href="#projects"   data-nav>데이터 도구</a>
+      <a href="#skills"     data-nav>스킬</a>
     </div>
     <a href="mailto:soominjun327@gmail.com" class="nav-cta">연락하기 →</a>
-    <button class="nav-mobile-btn" aria-label="메뉴">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/>
+    <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
         <line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
@@ -969,233 +869,310 @@ footer {
   </div>
 </nav>
 
-<!-- Hero -->
-<header class="hero" id="top">
-  <div class="container">
-    <div class="hero-eyebrow fade-up">Portfolio · 2026</div>
-    <h1 class="hero-name fade-up delay-1">전수민<span class="accent">.</span></h1>
-    <p class="hero-tagline fade-up delay-2">
-      <strong>데이터로 운영을 설계하고, 수익을 만드는 사업운영 리더.</strong><br>
-      P&amp;L 기반 수익성 관리부터 CRM 리텐션, SOP 표준화까지 — 개발 리소스 없이도 직접 운영 도구를 설계·구축합니다.
-    </p>
+<!-- mobile drawer -->
+<div class="nav-drawer" id="drawer">
+  <div class="nav-drawer-panel">
+    <a href="#about"      class="drawer-link">소개</a>
+    <a href="#experience" class="drawer-link">경력</a>
+    <a href="#projects"   class="drawer-link">데이터 도구</a>
+    <a href="#skills"     class="drawer-link">스킬</a>
+    <a href="mailto:soominjun327@gmail.com" class="drawer-cta">연락하기 →</a>
+  </div>
+</div>
 
-    <div class="hero-stats fade-up delay-3">
+<!-- ═══════════════════════════
+     HERO
+════════════════════════════ -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-rule"></div>
+  <div class="wrap">
+
+    <div class="hero-eyebrow fu">Portfolio · 2026</div>
+
+    <h1 class="hero-name fu d1">전수민<span class="accent">.</span></h1>
+
+    <div class="hero-tagline fu d2">
+      <p>데이터 기반으로 운영 체계를 설계하고,<br>수익성과 리텐션을 개선하는 사업운영 리더.</p>
+      <p>운영 데이터를 직접 구조화하고, 대시보드와 SOP로<br>실행 가능한 관리 체계를 구축합니다.</p>
+    </div>
+
+    <div class="hero-stats fu d3">
       <div class="hero-stat">
-        <div class="hero-stat-value">7<span class="unit">년+</span></div>
-        <div class="hero-stat-label">서비스 사업운영 경력</div>
+        <div class="hs-value">7<span class="u">년+</span></div>
+        <div class="hs-label">사업운영 경력</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value">20<span class="unit">%▼</span></div>
-        <div class="hero-stat-label">고객 이탈률 감소</div>
+        <div class="hs-value">-20<span class="u">%</span></div>
+        <div class="hs-label">고객 이탈률</div>
+        <div class="hs-sub">담당 팀 기준 · 리텐션 전략 실행</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value">90<span class="unit">%</span></div>
-        <div class="hero-stat-label">전사 재계약률 달성</div>
+        <div class="hs-value">90<span class="u">%</span></div>
+        <div class="hs-label">전사 재계약률 기여</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-value">#1</div>
-        <div class="hero-stat-label">전사 총매출 기여 · 2020</div>
+        <div class="hs-value">1위</div>
+        <div class="hs-label">전사 총매출 기여</div>
+        <div class="hs-sub">패스트파이브 · 2020</div>
       </div>
     </div>
 
-    <div class="hero-meta fade-up delay-4">
+    <div class="hero-meta fu d4">
       <a href="mailto:soominjun327@gmail.com">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
         soominjun327@gmail.com
       </a>
-      <span class="dot"></span>
+      <span class="hm-dot"></span>
       <span>+82 10 7457 7959</span>
-      <span class="dot"></span>
+      <span class="hm-dot"></span>
       <span>오토스테이 사업운영팀장 · 재직중</span>
     </div>
+
   </div>
 </header>
 
-<!-- About -->
+<!-- ═══════════════════════════
+     ABOUT
+════════════════════════════ -->
 <section class="section" id="about">
-  <div class="container">
-    <div class="section-label">About</div>
-    <h2 class="section-heading reveal">운영의 모든 레이어를<br>데이터로 연결합니다</h2>
+  <div class="wrap">
 
-    <div class="about-intro reveal">
+    <div class="sec-label">About</div>
+    <h2 class="sec-heading reveal">현장 운영 데이터를<br>의사결정 체계로 전환합니다</h2>
+
+    <div class="about-body reveal">
       <p>
-        저는 서비스 사업운영과 그로스 양쪽에서 7년 이상 실무를 쌓아온 <strong>전수민</strong>입니다. 패스트파이브(공유오피스)와 오토스테이(차량 구독) 같이 구독형 · 공간 기반 서비스에서, P&amp;L 개선부터 고객 리텐션 체계 구축까지 사업운영의 전 과정을 직접 설계하고 실행해 왔습니다.
+        저는 서비스 사업운영과 그로스 양쪽에서 7년 이상 실무를 쌓아온
+        <strong>전수민</strong>입니다. 패스트파이브(공유오피스)와 오토스테이(차량 구독)처럼
+        구독형·공간 기반 서비스에서, P&amp;L 개선부터 CRM 리텐션 체계 구축까지
+        사업운영의 전 과정을 직접 설계하고 실행해 왔습니다.
       </p>
       <p>
-        저의 차별점은 <strong>현장 데이터와 의사결정 사이의 거리를 좁히는 것</strong>입니다. 운영 문제가 발생했을 때 "개발팀에 요청하자"가 아닌, 직접 대시보드를 설계하고 필요한 도구를 만들어 현장에 즉시 적용합니다. 아래 '운영 도구' 섹션에서 실제 결과물을 확인하실 수 있습니다.
+        저는 현장 이슈를 데이터로 구조화하고,
+        <strong>실행 가능한 운영 기준과 관리 도구로 연결하는 데 강점</strong>이 있습니다.
+        아래 '데이터 도구' 섹션에서 직접 설계하고 구축한 실제 결과물을 확인하실 수 있습니다.
       </p>
     </div>
 
+    <!-- 4 pillars -->
     <div class="pillar-grid reveal">
-      <div class="pillar-card blue">
+
+      <div class="pillar c-blue">
+        <div class="pillar-bar"></div>
         <div class="pillar-icon">📊</div>
-        <div class="pillar-title">P&amp;L 기반 수익성 관리</div>
-        <div class="pillar-desc">가동률, 객단가, 구독 해지율 등 핵심 KPI를 정의하고 MRR·P&amp;L 모델링으로 수익성 개선 과제를 직접 설계·실행합니다.</div>
+        <div class="pillar-title">P&amp;L·KPI 기반 수익성 관리</div>
+        <div class="pillar-desc">
+          가동률·객단가·구독 해지율 등 핵심 KPI를 정의하고,
+          MRR·P&amp;L 모델링으로 수익성 개선 과제를 설계하고 실행합니다.
+        </div>
       </div>
-      <div class="pillar-card red">
+
+      <div class="pillar c-red">
+        <div class="pillar-bar"></div>
         <div class="pillar-icon">🔄</div>
-        <div class="pillar-title">CRM 기반 리텐션 전략</div>
-        <div class="pillar-desc">Salesforce, Pipedrive 기반 리텐션 파이프라인 운영으로 재계약률 개선과 이탈률 감소를 동시에 달성한 실전 경험을 보유합니다.</div>
+        <div class="pillar-title">CRM·VOC 기반 리텐션 개선</div>
+        <div class="pillar-desc">
+          Salesforce·Pipedrive 기반 리텐션 파이프라인 운영으로
+          재계약률 개선과 이탈률 감소를 동시에 달성한 실전 경험을 보유합니다.
+        </div>
       </div>
-      <div class="pillar-card green">
+
+      <div class="pillar c-green">
+        <div class="pillar-bar"></div>
         <div class="pillar-icon">⚙️</div>
-        <div class="pillar-title">운영 표준화 · SOP 구축</div>
-        <div class="pillar-desc">CS·시설·도급사·현장 운영의 SOP를 전면 재설계해 서비스 품질 편차와 운영 리스크를 구조적으로 줄입니다.</div>
+        <div class="pillar-title">SOP·품질 기준 표준화</div>
+        <div class="pillar-desc">
+          CS·시설·도급사·현장 운영의 SOP를 전면 재설계해
+          서비스 품질 편차와 운영 리스크를 구조적으로 줄입니다.
+        </div>
       </div>
-      <div class="pillar-card amber">
+
+      <div class="pillar c-amber">
+        <div class="pillar-bar"></div>
         <div class="pillar-icon">🛠️</div>
-        <div class="pillar-title">운영 도구 직접 설계·구축</div>
-        <div class="pillar-desc">개발 리소스 없이 AI를 활용해 직영점 운영 대시보드, CS 분석 대시보드를 직접 설계하고 현장에 적용합니다.</div>
+        <div class="pillar-title">운영 대시보드·관리 도구 구축</div>
+        <div class="pillar-desc">
+          운영 데이터를 직접 구조화하고, AI를 활용해
+          직영점 운영 대시보드와 CS 분석 대시보드를 직접 설계·적용합니다.
+        </div>
       </div>
+
     </div>
 
-    <!-- Metrics Band -->
+    <!-- metrics band -->
     <div class="metrics-band reveal">
-      <div class="metric-item">
-        <div class="metric-num" data-count="20" data-suffix="%"><span class="warn">0%</span></div>
-        <div class="metric-label">고객 이탈률 감소<br>패스트파이브 · 2023</div>
+      <div class="mb-item">
+        <div class="mb-num" data-count="20" data-prefix="-" data-suffix="%">
+          <span class="c-red">-0%</span>
+        </div>
+        <div class="mb-label">고객 이탈률 감소<br>패스트파이브 · 담당 팀</div>
       </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="90" data-suffix="%"><span class="hi">0%</span></div>
-        <div class="metric-label">전사 재계약률 달성<br>패스트파이브 · 공유오피스</div>
+      <div class="mb-item">
+        <div class="mb-num" data-count="90" data-suffix="%">
+          <span class="c-blue">0%</span>
+        </div>
+        <div class="mb-label">전사 재계약률 기여<br>패스트파이브 · 공유오피스</div>
       </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="10" data-suffix="%+"><span class="go">0%</span></div>
-        <div class="metric-label">팀 MRR 성장<br>패스트파이브 · 운영팀장</div>
+      <div class="mb-item">
+        <div class="mb-num" data-count="10" data-suffix="%+">
+          <span class="c-green">0%</span>
+        </div>
+        <div class="mb-label">팀 MRR 성장<br>패스트파이브 · 운영팀장</div>
       </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="10" data-suffix="%↑"><span class="go">0%</span></div>
-        <div class="metric-label">팀 매출 증가율<br>세일즈그룹 · CRM 코칭</div>
+      <div class="mb-item">
+        <div class="mb-num" data-count="10" data-suffix="%↑">
+          <span class="c-green">0%</span>
+        </div>
+        <div class="mb-label">팀 매출 증가율<br>세일즈그룹 · CRM 코칭</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- Experience -->
+<!-- ═══════════════════════════
+     EXPERIENCE
+════════════════════════════ -->
 <section class="section" id="experience">
-  <div class="container">
-    <div class="section-label">Experience</div>
-    <h2 class="section-heading reveal">경력</h2>
-    <div class="exp-total-badge reveal">
-      <span class="dot"></span>
+  <div class="wrap">
+
+    <div class="sec-label">Experience</div>
+    <h2 class="sec-heading reveal">경력</h2>
+
+    <div class="exp-badge reveal">
+      <span class="live-dot"></span>
       총 경력 7년 3개월 · 4개 회사
     </div>
 
     <div class="timeline">
 
-      <!-- 오토스테이 -->
-      <div class="timeline-item current reveal">
-        <div class="timeline-dot">
-          <div class="timeline-dot-circle"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-company">
+      <!-- ── 오토스테이 ── -->
+      <div class="tl-item current reveal">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <div class="tl-company">
               오토스테이
-              <span class="timeline-badge current">재직중</span>
+              <span class="tl-badge live">재직중</span>
             </div>
-            <div class="timeline-meta">
-              <span class="period">2026.01 — 현재</span>
-              <span class="separator">·</span>
+            <div class="tl-meta">
+              <span>2026.01 — 현재</span>
+              <span class="sep">·</span>
               <span>5개월+</span>
-              <span class="separator">·</span>
-              <span class="role-tag">정규직</span>
-              <span class="role-tag">사업운영 팀장</span>
+              <span class="sep">·</span>
+              <span class="tl-tag">정규직</span>
+              <span class="tl-tag">사업운영 팀장</span>
             </div>
           </div>
-          <div class="timeline-divider"></div>
+          <div class="tl-rule"></div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">1. P&amp;L 기반 수익성 관리 및 KPI 체계 구축</div>
-            <ul class="bullet-list">
-              <li>운영 대시보드를 신규 구축하고 가동률, 객단가, 구독 해지율 등 핵심 KPI 정의/추적 체계 수립</li>
-              <li>ALL PASS, 단독 PASS 등 <strong>구독 플랜별 수익성 격차 분석</strong>을 통해 상품 믹스 조정안 제안/실행</li>
-              <li>MRR, 이탈률, 방문 빈도 기반의 P&amp;L 모델링 및 KPI 트래킹 보드 설계</li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">1. P&amp;L 기반 수익성 관리 및 KPI 체계 구축</div>
+            <ul class="bullets">
+              <li>운영 대시보드를 신규 구축하고 가동률·객단가·구독 해지율 등
+                  핵심 KPI 정의 및 추적 체계 수립 중</li>
+              <li>구독 플랜별 수익성 격차를 분석하고
+                  <strong>상품 믹스 개선안을 도출·운영 중</strong></li>
+              <li>MRR·이탈률·방문 빈도 기반 P&amp;L 모델링 및 KPI 트래킹 보드 설계</li>
             </ul>
           </div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">2. SOP 재정비 및 운영 프로세스 표준화</div>
-            <ul class="bullet-list">
-              <li>입차, 설비, CS, 비상대응 <strong>4개 영역의 통합 운영 매뉴얼 재설계</strong></li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">2. SOP 재정비 및 운영 프로세스 표준화</div>
+            <ul class="bullets">
+              <li>입차·설비·CS·비상대응 <strong>4개 영역의 통합 운영 매뉴얼 재설계 진행 중</strong></li>
               <li>세차기 입차 SOP를 표준화하고 사고 예방 기준을 명문화해 현장 운영 리스크 축소</li>
-              <li>Slack Canvas, Notion 기반 SOP 문서화로 개정 이력·버전 관리·현장 접근성 개선</li>
+              <li>Slack Canvas·Notion 기반 SOP 문서화로 개정 이력·버전 관리·현장 접근성 개선</li>
             </ul>
           </div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">3. CX 개선 및 리텐션 운영 체계 구축</div>
-            <ul class="bullet-list">
-              <li>앱 예약, 입차, 출차, CS 구간별 고객 Pain Point 매핑 및 개선 우선순위 도출</li>
-              <li>해지 사유 코드를 분류하고 리텐션 액션과 연동해 구독 해지율 추적 체계 구축</li>
-              <li>방문 빈도, 구독 연속성 등 구독형 서비스 특성에 맞는 <strong>리텐션 지표 정의</strong></li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">3. CX 개선 및 리텐션 운영 체계 구축</div>
+            <ul class="bullets">
+              <li>앱 예약·입차·출차·CS 구간별 고객 Pain Point를 매핑하고
+                  개선 우선순위 도출 중</li>
+              <li>해지 사유 코드를 분류하고 리텐션 액션과 연동해
+                  <strong>구독 해지율 추적 체계 구축 중</strong></li>
+              <li>방문 빈도·구독 연속성 등 구독형 서비스 특성에 맞는 리텐션 지표 정의</li>
             </ul>
           </div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">4. 도급사 SLA 및 외주 품질관리 체계 구축</div>
-            <ul class="bullet-list">
-              <li>입차 유도, 세차 품질, 시설 청결 등 도급사 SLA 점검 항목 정의</li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">4. 도급사 SLA 및 외주 품질관리 체계 구축</div>
+            <ul class="bullets">
+              <li>입차 유도·세차 품질·시설 청결 등 도급사 SLA 점검 항목 정의</li>
               <li>월간 품질 감사 체계를 수립하고 외주 파트너 품질 편차 관리 기준 마련</li>
-              <li>피드백, 재교육, 교체 기준을 명문화해 벤더 리스크와 서비스 품질 편차 관리</li>
+              <li>피드백·재교육·교체 기준을 명문화해 벤더 리스크 및 서비스 품질 편차 관리</li>
             </ul>
           </div>
         </div>
       </div>
 
-      <!-- 패스트파이브 -->
-      <div class="timeline-item reveal">
-        <div class="timeline-dot">
-          <div class="timeline-dot-circle"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-company">
+      <!-- ── 패스트파이브 ── -->
+      <div class="tl-item reveal">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <div class="tl-company">
               패스트파이브
-              <span class="timeline-badge">4년 7개월</span>
+              <span class="tl-badge">4년 7개월</span>
             </div>
-            <div class="timeline-meta">
-              <span class="period">2019.07 — 2024.01</span>
-              <span class="separator">·</span>
-              <span class="role-tag">정규직</span>
-              <span class="role-tag">영업/운영 팀장</span>
+            <div class="tl-meta">
+              <span>2019.07 — 2024.01</span>
+              <span class="sep">·</span>
+              <span class="tl-tag">정규직</span>
+              <span class="tl-tag">영업/운영 팀장</span>
             </div>
           </div>
-          <div class="timeline-divider"></div>
+          <div class="tl-rule"></div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">공유오피스그룹 사업운영팀 · 운영 팀장</div>
-            <div class="timeline-sub-period">2023.01 — 2024.01</div>
-            <ul class="bullet-list">
-              <li>리텐션 전략을 설계/실행해 담당 팀 <strong>고객 이탈률 20% 감소</strong> <span class="highlight-pill red">-20%</span></li>
-              <li>그로스 전략 기획 및 실행을 통해 팀 담당 <strong>MRR 10% 증가</strong> <span class="highlight-pill green">+10%</span></li>
-              <li>CRM 및 운영 데이터를 분석해 고객 유지, 매출 성장, 서비스 개선 과제 도출</li>
-              <li>재계약 유도 프로그램을 기획/실행해 담당 포트폴리오 재계약률 개선</li>
-              <li><strong>전사 재계약률 90% 달성</strong> 과정에서 고객 관리 및 리텐션 운영에 기여 <span class="highlight-pill">90%</span></li>
-              <li>Salesforce, Pipedrive 기반 리텐션 파이프라인과 고객 정보 관리 체계 운영</li>
-              <li>Service Cloud, Zendesk 기반 고객 응대 및 서비스 개선 사이클 운영</li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">공유오피스그룹 사업운영팀 · 운영 팀장</div>
+            <div class="tl-sub-period">2023.01 — 2024.01</div>
+            <ul class="bullets">
+              <li>리텐션 전략을 설계·실행해
+                  담당 팀 <strong>고객 이탈률 20% 감소</strong>
+                  <span class="tag-inline r">-20%</span></li>
+              <li>그로스 전략 기획 및 실행을 통해 담당 팀
+                  <strong>MRR 10% 증가</strong>
+                  <span class="tag-inline g">+10%</span></li>
+              <li>CRM·운영 데이터를 분석해 고객 유지·매출 성장·서비스 개선 과제 도출</li>
+              <li>재계약 유도 프로그램을 기획·실행해 담당 포트폴리오 재계약률 개선</li>
+              <li><strong>전사 재계약률 90% 달성</strong> 과정에서 고객 관리 및 리텐션 운영에 기여
+                  <span class="tag-inline b">90%</span></li>
+              <li>Salesforce·Pipedrive 기반 리텐션 파이프라인 및 고객 정보 관리 체계 운영</li>
+              <li>Service Cloud·Zendesk 기반 고객 응대 및 서비스 개선 사이클 운영</li>
             </ul>
           </div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">세일즈그룹 MA혁신팀 전략파트 · 영업 파트장</div>
-            <div class="timeline-sub-period">2022.01 — 2022.12</div>
-            <ul class="bullet-list">
-              <li>연간 매출 프로젝션을 수립하고 분기별 실적 대비 <strong>달성률 90% 이상 유지</strong></li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">세일즈그룹 MA혁신팀 전략파트 · 영업 파트장</div>
+            <div class="tl-sub-period">2022.01 — 2022.12</div>
+            <ul class="bullets">
+              <li>연간 매출 프로젝션을 수립하고 분기별 실적 대비
+                  <strong>달성률 90% 이상 유지</strong></li>
               <li>그룹 영업 지표를 신규 정의하고 주간 퍼포먼스 리뷰 체계 구축</li>
               <li>Salesforce 도입을 주도해 고객 데이터 정확도와 영업 파이프라인 가시성 개선</li>
-              <li>CRM 데이터 기반 코칭 체계를 운영해 <strong>팀 매출 증가율 10% 이상 달성</strong> <span class="highlight-pill green">+10%</span></li>
-              <li>신규 입사자 OJT 프로그램을 설계/운영해 업무 온보딩 체계 구축</li>
+              <li>CRM 데이터 기반 코칭 체계를 운영해
+                  <strong>팀 매출 증가율 10% 이상 달성</strong>
+                  <span class="tag-inline g">+10%</span></li>
+              <li>신규 입사자 OJT 프로그램을 설계·운영해 업무 온보딩 체계 구축</li>
             </ul>
           </div>
 
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">공유오피스그룹 사업운영팀 · 영업/운영 매니저</div>
-            <div class="timeline-sub-period">2019.07 — 2021.12</div>
-            <ul class="bullet-list">
-              <li><strong>2020년 전사 총매출 기여액 1위 달성</strong> <span class="highlight-pill">#1</span></li>
-              <li><strong>2021년 전사 계약률 1위 달성</strong> <span class="highlight-pill">#1</span></li>
+          <div class="tl-sub">
+            <div class="tl-sub-title">공유오피스그룹 사업운영팀 · 영업/운영 매니저</div>
+            <div class="tl-sub-period">2019.07 — 2021.12</div>
+            <ul class="bullets">
+              <li><strong>2020년 전사 총매출 기여액 1위 달성</strong>
+                  <span class="tag-inline b">#1</span></li>
+              <li><strong>2021년 전사 계약률 1위 달성</strong>
+                  <span class="tag-inline b">#1</span></li>
               <li>리드→상담→계약 전환 파이프라인을 구조화해 영업 프로세스 효율화</li>
               <li>중개사 대상 맞춤형 B2B 제안서 작성으로 계약 성사율 개선</li>
             </ul>
@@ -1203,29 +1180,27 @@ footer {
         </div>
       </div>
 
-      <!-- 인동에프엔 -->
-      <div class="timeline-item reveal">
-        <div class="timeline-dot">
-          <div class="timeline-dot-circle"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-company">
+      <!-- ── 인동에프엔 ── -->
+      <div class="tl-item reveal">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <div class="tl-company">
               인동에프엔
-              <span class="timeline-badge">1년 10개월</span>
+              <span class="tl-badge">1년 10개월</span>
             </div>
-            <div class="timeline-meta">
-              <span class="period">2017.05 — 2019.02</span>
-              <span class="separator">·</span>
-              <span class="role-tag">정규직</span>
-              <span class="role-tag">영업관리 사원</span>
+            <div class="tl-meta">
+              <span>2017.05 — 2019.02</span>
+              <span class="sep">·</span>
+              <span class="tl-tag">정규직</span>
+              <span class="tl-tag">영업관리 사원</span>
             </div>
           </div>
-          <div class="timeline-divider"></div>
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">영업본부 아울렛팀</div>
-            <ul class="bullet-list">
-              <li>아울렛 채널의 주간 매출, 판매 현황, 카테고리별 실적 데이터 분석</li>
+          <div class="tl-rule"></div>
+          <div class="tl-sub">
+            <div class="tl-sub-title">영업본부 아울렛팀</div>
+            <ul class="bullets">
+              <li>아울렛 채널의 주간 매출·판매 현황·카테고리별 실적 데이터 분석</li>
               <li>이월 상품 재고 현황 관리 및 재고 소진을 위한 운영 프로세스 개선</li>
               <li>Microsoft Office Suite 기반 매출 리포트 작성 및 영업 의사결정 지원</li>
             </ul>
@@ -1233,30 +1208,28 @@ footer {
         </div>
       </div>
 
-      <!-- JYP -->
-      <div class="timeline-item reveal">
-        <div class="timeline-dot">
-          <div class="timeline-dot-circle"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <div class="timeline-company">
+      <!-- ── JYP ── -->
+      <div class="tl-item reveal">
+        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-head">
+            <div class="tl-company">
               제이와이피엔터테인먼트 (JYP)
-              <span class="timeline-badge">5개월</span>
+              <span class="tl-badge">5개월</span>
             </div>
-            <div class="timeline-meta">
-              <span class="period">2016.04 — 2016.08</span>
-              <span class="separator">·</span>
-              <span class="role-tag">정규직</span>
-              <span class="role-tag">운영 매니저</span>
+            <div class="tl-meta">
+              <span>2016.04 — 2016.08</span>
+              <span class="sep">·</span>
+              <span class="tl-tag">정규직</span>
+              <span class="tl-tag">운영 매니저</span>
             </div>
           </div>
-          <div class="timeline-divider"></div>
-          <div class="timeline-sub">
-            <div class="timeline-sub-title">아티스트본부 매니지먼트팀</div>
-            <ul class="bullet-list">
+          <div class="tl-rule"></div>
+          <div class="tl-sub">
+            <div class="tl-sub-title">아티스트본부 매니지먼트팀</div>
+            <ul class="bullets">
               <li>GOT7 태국 광고 기자회견 및 팬미팅 현장 운영 지원</li>
-              <li>아티스트 MV, 앨범 자켓, 디지털 싱글 촬영 현장 운영 지원</li>
+              <li>아티스트 MV·앨범 자켓·디지털 싱글 촬영 현장 운영 지원</li>
               <li>다수 이해관계자 프로젝트에서 일정 관리와 현장 문제 대응 수행</li>
             </ul>
           </div>
@@ -1267,47 +1240,58 @@ footer {
   </div>
 </section>
 
-<!-- Projects -->
+<!-- ═══════════════════════════
+     PROJECTS
+════════════════════════════ -->
 <section class="section" id="projects">
-  <div class="container">
-    <div class="section-label">Featured Projects</div>
-    <h2 class="section-heading reveal">개발 리소스 없이<br>혼자 만든 운영 도구들</h2>
-    <p class="projects-intro reveal">
-      "개발팀에 요청하자"가 아닌, 운영 데이터를 의사결정에 직접 연결하기 위해 AI와 기술을 조합해 설계·구축한 실제 운영 도구입니다. 각 카드를 클릭하면 동작하는 라이브 데모로 이동합니다.
+  <div class="wrap">
+
+    <div class="sec-label">Data Tools</div>
+    <h2 class="sec-heading reveal">운영 문제를 직접 해결하기 위해<br>설계한 데이터 도구</h2>
+    <p class="sec-desc reveal">
+      민감 정보를 제거한 데모 화면에서 주요 기능과 설계 의도를 확인할 수 있습니다.<br>
+      각 도구는 실제 현장에서 발생한 운영 문제에서 출발해 직접 설계하고 구축했습니다.
     </p>
 
-    <div class="project-grid">
+    <div class="project-list">
 
-      <a class="project-card proj-1 reveal" href="https://soomin-portfolio-ops.vercel.app/" target="_blank" rel="noopener">
-        <div class="project-num">01</div>
+      <a class="proj-card p1 reveal"
+         href="https://soomin-portfolio-ops.vercel.app/"
+         target="_blank" rel="noopener">
+        <div class="proj-num">01</div>
         <div>
-          <div class="project-title">직영점 운영 대시보드</div>
-          <div class="project-sub">[OPS] Operations Management Dashboard</div>
-          <p class="project-desc">
-            오토스테이 직영점의 <strong>가동률, 구독 해지율, 객단가, MRR 등 핵심 KPI를 실시간으로 추적</strong>하는 운영 대시보드. 구독 플랜별 수익성 분석, P&amp;L 모델링, 도급사 SLA 점검까지 하나의 화면에서 처리할 수 있도록 설계했습니다.
+          <div class="proj-title">직영점 운영 대시보드</div>
+          <div class="proj-sub">[OPS] Operations Management Dashboard</div>
+          <p class="proj-desc">
+            오토스테이 직영점의 <strong>가동률·구독 해지율·객단가·MRR 등 핵심 KPI를 실시간으로 구조화</strong>한 운영 대시보드입니다. 구독 플랜별 수익성 분석, P&amp;L 모델링, 도급사 SLA 점검 현황을 하나의 화면에서 확인하고 의사결정에 직접 연결되도록 설계했습니다.
           </p>
-          <div class="chip-row">
+          <div class="chips">
             <span class="chip">KPI 실시간 트래킹</span>
             <span class="chip">P&amp;L 모델링</span>
             <span class="chip">구독 해지율 분석</span>
-            <span class="chip">구독 플랜별 수익성</span>
+            <span class="chip">플랜별 수익성 비교</span>
             <span class="chip">도급사 SLA 관리</span>
           </div>
         </div>
-        <div class="project-link-btn">
-          View demo <span class="project-link-arrow">→</span>
+        <div class="proj-cta">
+          데모 보기 <span class="proj-arrow">→</span>
         </div>
       </a>
 
-      <a class="project-card proj-2 reveal" href="https://soomin-portfolio-cs.vercel.app/" target="_blank" rel="noopener">
-        <div class="project-num">02</div>
+      <a class="proj-card p2 reveal"
+         href="https://soomin-portfolio-cs.vercel.app/"
+         target="_blank" rel="noopener">
+        <div class="proj-num">02</div>
         <div>
-          <div class="project-title">채널톡 CS 대시보드</div>
-          <div class="project-sub">[OPS] Channel Talk CS Analytics Dashboard</div>
-          <p class="project-desc">
-            채널톡은 상담 처리 도구로는 충분하지만, <strong>CX 매니저가 의사결정에 쓸 상위 분석 뷰는 부족</strong>했습니다. VOC 트렌드, 이상 징후 자동 감지, 요일·시간대 히트맵, 리텐션 액션 연동까지 — "어디를 먼저 봐야 하는가"가 화면에서 즉시 보이도록 설계했습니다.
+          <div class="proj-title">채널톡 CS 대시보드</div>
+          <div class="proj-sub">[OPS] Channel Talk CS Analytics Dashboard</div>
+          <p class="proj-desc">
+            채널톡은 상담 처리 도구로는 충분하지만,
+            <strong>CX 매니저가 의사결정에 사용할 상위 분석 뷰는 부족</strong>했습니다.
+            VOC 트렌드·이상 징후 자동 감지·요일×시간대 히트맵·해지 사유 분류까지 —
+            "어디를 먼저 봐야 하는가"가 화면에서 즉시 보이도록 설계했습니다.
           </p>
-          <div class="chip-row">
+          <div class="chips">
             <span class="chip">VOC 트렌드 분석</span>
             <span class="chip">이상 징후 자동 감지</span>
             <span class="chip">시간대 × 요일 히트맵</span>
@@ -1315,8 +1299,8 @@ footer {
             <span class="chip">리텐션 액션 연동</span>
           </div>
         </div>
-        <div class="project-link-btn">
-          View demo <span class="project-link-arrow">→</span>
+        <div class="proj-cta">
+          데모 보기 <span class="proj-arrow">→</span>
         </div>
       </a>
 
@@ -1324,202 +1308,236 @@ footer {
   </div>
 </section>
 
-<!-- Skills & Education -->
+<!-- ═══════════════════════════
+     SKILLS
+════════════════════════════ -->
 <section class="section" id="skills">
-  <div class="container">
-    <div class="section-label">Skills & Education</div>
-    <h2 class="section-heading reveal">스킬 · 학력</h2>
+  <div class="wrap">
 
-    <div class="skills-layout reveal">
+    <div class="sec-label">Skills & Education</div>
+    <h2 class="sec-heading reveal">스킬 · 학력</h2>
+
+    <div class="skills-grid reveal">
+
+      <!-- skills -->
       <div>
-        <div class="skill-group">
-          <div class="skill-group-label">사업운영 · 그로스</div>
-          <div class="skill-tags">
-            <span class="skill-tag">P&amp;L 관리</span>
-            <span class="skill-tag">KPI 체계 설계</span>
-            <span class="skill-tag">사업 전략</span>
-            <span class="skill-tag">그로스 기획</span>
-            <span class="skill-tag">MRR 모델링</span>
-            <span class="skill-tag">수익성 분석</span>
+        <div class="sk-group">
+          <div class="sk-label">사업운영 · 그로스</div>
+          <div class="sk-tags">
+            <span class="sk-tag">P&amp;L 관리</span>
+            <span class="sk-tag">KPI 체계 설계</span>
+            <span class="sk-tag">사업 전략</span>
+            <span class="sk-tag">그로스 기획</span>
+            <span class="sk-tag">MRR 모델링</span>
+            <span class="sk-tag">수익성 분석</span>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-label">CRM · 리텐션</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Salesforce</span>
-            <span class="skill-tag">Pipedrive</span>
-            <span class="skill-tag">Zendesk</span>
-            <span class="skill-tag">리텐션 파이프라인</span>
-            <span class="skill-tag">재계약 프로그램</span>
-            <span class="skill-tag">VOC 분석</span>
+        <div class="sk-group">
+          <div class="sk-label">CRM · 리텐션</div>
+          <div class="sk-tags">
+            <span class="sk-tag">Salesforce</span>
+            <span class="sk-tag">Pipedrive</span>
+            <span class="sk-tag">Zendesk</span>
+            <span class="sk-tag">리텐션 파이프라인</span>
+            <span class="sk-tag">재계약 프로그램</span>
+            <span class="sk-tag">VOC 분석</span>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-label">운영 · 표준화</div>
-          <div class="skill-tags">
-            <span class="skill-tag">SOP 설계</span>
-            <span class="skill-tag">운영 매뉴얼</span>
-            <span class="skill-tag">도급사 SLA</span>
-            <span class="skill-tag">품질 감사</span>
-            <span class="skill-tag">프로세스 표준화</span>
-            <span class="skill-tag">OJT 설계</span>
+        <div class="sk-group">
+          <div class="sk-label">운영 표준화</div>
+          <div class="sk-tags">
+            <span class="sk-tag">SOP 설계</span>
+            <span class="sk-tag">운영 매뉴얼</span>
+            <span class="sk-tag">도급사 SLA</span>
+            <span class="sk-tag">품질 감사</span>
+            <span class="sk-tag">프로세스 표준화</span>
+            <span class="sk-tag">OJT 설계</span>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-label">도구 · 플랫폼</div>
-          <div class="skill-tags">
-            <span class="skill-tag">Notion</span>
-            <span class="skill-tag">Slack Canvas</span>
-            <span class="skill-tag">Google Workspace</span>
-            <span class="skill-tag">Microsoft 365</span>
-            <span class="skill-tag">Excel (고급)</span>
-            <span class="skill-tag">PowerPoint</span>
+        <div class="sk-group">
+          <div class="sk-label">도구 · 플랫폼</div>
+          <div class="sk-tags">
+            <span class="sk-tag">Notion</span>
+            <span class="sk-tag">Slack Canvas</span>
+            <span class="sk-tag">Google Workspace</span>
+            <span class="sk-tag">Microsoft 365</span>
+            <span class="sk-tag">Excel (고급)</span>
+            <span class="sk-tag">PowerPoint</span>
           </div>
         </div>
-
-        <div class="skill-group">
-          <div class="skill-group-label">데이터 · AI 활용</div>
-          <div class="skill-tags">
-            <span class="skill-tag">데이터 분석</span>
-            <span class="skill-tag">운영 대시보드 설계</span>
-            <span class="skill-tag">AI 기반 도구 제작</span>
-            <span class="skill-tag">성과 리포팅</span>
+        <div class="sk-group">
+          <div class="sk-label">데이터 · AI 활용</div>
+          <div class="sk-tags">
+            <span class="sk-tag">데이터 분석</span>
+            <span class="sk-tag">운영 대시보드 설계</span>
+            <span class="sk-tag">AI 기반 도구 제작</span>
+            <span class="sk-tag">성과 리포팅</span>
           </div>
         </div>
       </div>
 
-      <div class="edu-side">
+      <!-- education -->
+      <div class="edu-col">
         <div class="edu-card">
           <div class="edu-school">전북대학교</div>
           <div class="edu-major">주거환경학과</div>
           <div class="edu-period">2009.03 — 2016.08 · 졸업</div>
+        </div>
+        <div class="edu-card exchange">
+          <div class="edu-school">영국 셰필드대학교</div>
+          <div class="edu-major">
+            교환학생 파견
+            <span class="exchange-badge">Exchange</span>
+          </div>
+          <div class="edu-period">2014.03 — 2014.08 · 파견</div>
         </div>
         <div class="edu-card">
           <div class="edu-school">완산고등학교</div>
           <div class="edu-major">인문계</div>
           <div class="edu-period">2006.03 — 2009.02 · 졸업</div>
         </div>
-        <div class="edu-card" style="background: var(--blue-light); border-color: rgba(29,78,216,0.15);">
-          <div class="edu-school" style="color: var(--blue);">언어</div>
+        <div class="edu-card lang">
+          <div class="edu-school">언어</div>
           <div class="edu-major">영어 · 일상 회화</div>
-          <div class="edu-period" style="border-top-color: rgba(29,78,216,0.1);">Korean (Native) · English (Conversational)</div>
+          <div class="edu-period">Korean (Native) · English (Conversational)</div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Contact -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="contact-label">Get in touch</div>
-    <h2 class="contact-heading">함께 성과를<br>설계해 보시겠어요?</h2>
-    <p class="contact-sub">
-      구독형·공간 서비스의 수익성 개선과 고객 리텐션 강화가 필요한 조직에서, 사업운영 리더로 기여하고 싶습니다. 채용 제안 및 협업 문의 모두 환영합니다.
+<!-- ═══════════════════════════
+     CONTACT
+════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="wrap">
+
+    <div class="ct-label">Get in touch</div>
+    <h2 class="ct-heading">사업운영·그로스 리더<br>포지션 제안을 기다립니다</h2>
+    <p class="ct-sub">
+      구독형·공간 기반 서비스의 수익성 개선, 리텐션 강화,
+      운영 표준화가 필요한 조직에서 기여할 수 있습니다.
+      채용 제안 및 협업 문의 모두 환영합니다.
     </p>
-    <div class="contact-btns">
-      <a class="contact-btn primary" href="mailto:soominjun327@gmail.com">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    <div class="ct-btns">
+      <a class="ct-btn primary" href="mailto:soominjun327@gmail.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
         이메일 보내기 →
       </a>
-      <a class="contact-btn outline" href="tel:+821074577959">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.61 4.56 2 2 0 0 1 3.58 2.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a class="ct-btn outline" href="tel:+821074577959">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.58 2.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
         +82 10 7457 7959
       </a>
     </div>
+
   </div>
 </section>
 
-<footer>
+<!-- ═══════════════════════════
+     FOOTER
+════════════════════════════ -->
+<footer class="footer">
   <div class="footer-inner">
     <span>© 2026 전수민 · Portfolio</span>
     <span>Built with HTML · CSS · JavaScript</span>
   </div>
 </footer>
 
+<!-- ═══════════════════════════
+     JAVASCRIPT
+════════════════════════════ -->
 <script>
-// ===== SCROLL PROGRESS =====
-const progressBar = document.getElementById('scroll-progress');
-function updateProgress() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = progress + '%';
-}
-window.addEventListener('scroll', updateProgress, { passive: true });
+/* ── scroll progress ── */
+const prog = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  prog.style.width = (p * 100) + '%';
+}, { passive: true });
 
-// ===== INTERSECTION OBSERVER (reveal) =====
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+/* ── mobile drawer ── */
+const hamburger = document.getElementById('hamburger');
+const drawer    = document.getElementById('drawer');
 
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.style.transitionDelay = (i % 3) * 0.06 + 's';
-  revealObserver.observe(el);
+hamburger.addEventListener('click', () => {
+  const open = drawer.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
 });
 
-// ===== COUNTER ANIMATION =====
-function animateCounter(el) {
-  const target = parseInt(el.dataset.count, 10);
-  const suffix = el.dataset.suffix || '';
-  const span = el.querySelector('span');
-  const colorClass = span ? Array.from(span.classList) : [];
-  let current = 0;
-  const step = target / 40;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    const display = Math.round(current);
-    if (span) {
-      span.textContent = display + suffix;
-    } else {
-      el.textContent = display + suffix;
+// close on backdrop click
+drawer.addEventListener('click', e => {
+  if (e.target === drawer) drawer.classList.remove('open');
+});
+
+// close on link click
+document.querySelectorAll('.drawer-link, .drawer-cta').forEach(a => {
+  a.addEventListener('click', () => drawer.classList.remove('open'));
+});
+
+/* ── reveal on scroll ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      revealObs.unobserve(e.target);
     }
-    if (current >= target) clearInterval(timer);
-  }, 30);
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.055 + 's';
+  revealObs.observe(el);
+});
+
+/* ── counter animation ── */
+function runCounter(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const span   = el.querySelector('span');
+  let   cur    = 0;
+  const inc    = target / 44;
+  const timer  = setInterval(() => {
+    cur = Math.min(cur + inc, target);
+    const val = Math.round(cur);
+    if (span) span.textContent = prefix + val + suffix;
+    else      el.textContent   = prefix + val + suffix;
+    if (cur >= target) clearInterval(timer);
+  }, 28);
 }
 
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { runCounter(e.target); counterObs.unobserve(e.target); }
   });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
 
-// ===== ACTIVE NAV =====
-const sections = document.querySelectorAll('section[id], header[id]');
-const navLinks = document.querySelectorAll('[data-nav]');
+/* ── active nav ── */
+const sectionEls = document.querySelectorAll('section[id], header[id]');
+const navAs      = document.querySelectorAll('[data-nav]');
 
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navAs.forEach(a =>
+        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)
+      );
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.35 });
 
-sections.forEach(s => navObserver.observe(s));
-
-// ===== HERO STAT COUNTER ON LOAD =====
-const heroValues = document.querySelectorAll('.hero-stat-value');
-heroValues.forEach(el => {
-  const text = el.innerHTML;
-  // already rendered - just add subtle fade
-});
+sectionEls.forEach(s => navObs.observe(s));
 </script>
 
 </body>
