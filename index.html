@@ -633,7 +633,12 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
   content: '—'; color: var(--text-subtle); font-weight: 600;
   flex-shrink: 0; line-height: 1.72;
 }
-.bullets strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
+.bullets strong {
+  font-weight: 700;
+  line-height: inherit;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
 
 .tag-inline {
   display: inline-flex; align-items: center;
@@ -701,7 +706,13 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
   line-height: 1.7; margin-bottom: 14px; max-width: 620px;
   word-break: keep-all;
 }
-.proj-desc strong { color: var(--text); font-weight: 750; letter-spacing: 0; word-spacing: 0; }
+.proj-desc strong {
+  color: var(--text);
+  font-weight: 700;
+  line-height: inherit;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
 
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .chip {
@@ -1130,7 +1141,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
       </p>
       <p>
         강점은 현장 이슈를 수익성, 고객 유지, 서비스 품질, 팀 실행력의 문제로 구조화하고<br class="about-br">
-        <strong>운영 기준·대시보드·리뷰 체계</strong>로 연결하는 것입니다.<br class="about-br">
+        운영 기준·대시보드·리뷰 체계로 연결하는 것입니다.<br class="about-br">
         고객 이탈률 감소, MRR 성장, 재계약률 개선, 목표 달성률 관리까지<br class="about-br">
         성과가 추적되는 방식으로 운영 체계를 구축해 왔습니다.
       </p>
@@ -1263,8 +1274,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
             <ul class="bullets">
               <li>운영 대시보드를 신규 구축하고 가동률, 객단가, 구독 해지율 등
                   핵심 KPI 정의 및 추적 체계 수립</li>
-              <li>주요 구독 플랜별 수익성 격차를 분석하고
-                  <strong>상품 믹스 조정안을 제안·실행</strong></li>
+              <li>주요 구독 플랜별 수익성 격차를 분석하고 상품 믹스 조정안을 제안·실행</li>
               <li>MRR, 이탈률, 방문 빈도 기반의 P&amp;L 모델링 및 KPI 트래킹 보드 설계</li>
             </ul>
           </div>
@@ -1272,7 +1282,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
           <div class="tl-sub">
             <div class="tl-sub-title">2. SOP 재정비 및 운영 프로세스 표준화</div>
             <ul class="bullets">
-              <li>입차·설비·CS·비상대응 <strong>4개 영역의 통합 운영 매뉴얼 재설계</strong></li>
+              <li>입차·설비·CS·비상대응 4개 영역의 통합 운영 매뉴얼 재설계</li>
               <li>세차기 입차 SOP를 표준화하고 사고 예방 기준을 명문화해 현장 운영 리스크 축소</li>
               <li>Slack Canvas·Notion 기반 SOP 문서화로 개정 이력, 버전 관리, 현장 접근성 개선</li>
             </ul>
@@ -1282,8 +1292,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
             <div class="tl-sub-title">3. CX 개선 및 리텐션 운영 체계 구축</div>
             <ul class="bullets">
               <li>앱 예약·입차·출차·CS 구간별 고객 Pain Point를 매핑하고 개선 우선순위 도출</li>
-              <li>해지 사유 코드를 분류하고 리텐션 액션과 연동해
-                  <strong>구독 해지율 추적 체계 구축</strong></li>
+              <li>해지 사유 코드를 분류하고 리텐션 액션과 연동해 구독 해지율 추적 체계 구축</li>
               <li>방문 빈도, 구독 연속성 등 구독형 O2O 서비스 특성에 맞는 리텐션 지표 정의</li>
             </ul>
           </div>
@@ -1449,7 +1458,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
           <div class="proj-title">운영 KPI 대시보드</div>
           <div class="proj-sub">[OPS] Operations Management Dashboard</div>
           <p class="proj-desc">
-            직영점 운영 원본 구조에 맞춰 <strong>매출·MRR·가동률·이탈률·SLA·액션 우선순위</strong>를 한 화면에 정리했습니다.<br>
+            직영점 운영 원본 구조에 맞춰 매출·MRR·가동률·이탈률·SLA·액션 우선순위를 한 화면에 정리했습니다.<br>
             지점별 성과, 플랜별 수익성, 운영 리스크, 개선 기회를 같은 기준으로 비교할 수 있게 설계했습니다.
           </p>
           <div class="chips">
@@ -1473,7 +1482,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
           <div class="proj-title">채널톡 CS 대시보드</div>
           <div class="proj-sub">[OPS] Channel Talk CS Analytics Dashboard</div>
           <p class="proj-desc">
-            채널톡 원본 대시보드의 운영 흐름을 유지하면서 <strong>오늘의 CS 상태, 헬스 스코어, 장기 지연, VOC, 담당자 편중</strong>을<br>
+            채널톡 원본 대시보드의 운영 흐름을 유지하면서 오늘의 CS 상태, 헬스 스코어, 장기 지연, VOC, 담당자 편중을<br>
             가상 데이터로 재구성했습니다. 상담 현황을 우선 대응 과제로 전환하는 데 초점을 맞췄습니다.
           </p>
           <div class="chips">
@@ -1497,7 +1506,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
           <div class="proj-title">Weather Ops 대시보드</div>
           <div class="proj-sub">[OPS] Weather Operations Dashboard</div>
           <p class="proj-desc">
-            Weather Ops 원본 구조에 맞춰 <strong>기상 리스크, 현장 조치, AS 차단, 회복률, CRM 실행 대기</strong>를 한 화면에 정리했습니다.<br>
+            Weather Ops 원본 구조에 맞춰 기상 리스크, 현장 조치, AS 차단, 회복률, CRM 실행 대기를 한 화면에 정리했습니다.<br>
             지점별 위험도와 D-day/D+1/D+2 회복 흐름을 운영팀·마케팅팀 액션으로 연결하도록 설계했습니다.
           </p>
           <div class="chips">
