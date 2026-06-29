@@ -336,7 +336,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
 }
 .ft-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 .ft-card {
@@ -678,6 +678,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
 }
 .proj-card.p1::before { background: linear-gradient(180deg, var(--blue), #6366f1); }
 .proj-card.p2::before { background: linear-gradient(180deg, var(--green), #0ea5e9); }
+.proj-card.p3::before { background: linear-gradient(180deg, var(--amber), #f97316); }
 .proj-card:hover::before { width: 6px; }
 
 .proj-num {
@@ -1101,6 +1102,12 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
           <p>VOC, 장기 지연, 담당자 편중을 상태 진단과 후속 액션으로 연결하는 CS 운영 분석 도구입니다.</p>
           <span>데모 보기 →</span>
         </a>
+        <a class="ft-card" href="https://portfolio-weatherops.vercel.app/" target="_blank" rel="noopener">
+          <div class="ft-num">03</div>
+          <h3>Weather Ops 대시보드</h3>
+          <p>기상 리스크, AS 차단, 회복률, CRM 실행 대기를 한 화면에서 관리하는 운영 의사결정 도구입니다.</p>
+          <span>데모 보기 →</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1429,7 +1436,7 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
     <h2 class="sec-heading reveal">운영 의사결정을 빠르게 만드는<br>대표 산출물</h2>
     <p class="sec-desc reveal">
       민감 정보는 제거하고 데이터와 수치는 가상으로 재구성했습니다.<br>
-      P&amp;L, KPI, CS/VOC, 리텐션 지표를 운영 액션으로 연결하는 설계 방식을 확인할 수 있습니다.
+      P&amp;L, KPI, CS/VOC, 기상 리스크, 리텐션 지표를 운영 액션으로 연결하는 설계 방식을 확인할 수 있습니다.
     </p>
 
     <div class="project-list">
@@ -1475,6 +1482,30 @@ strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
             <span class="chip">VOC 진단</span>
             <span class="chip">담당자 편중</span>
             <span class="chip">액션 큐</span>
+          </div>
+        </div>
+        <div class="proj-cta">
+          데모 보기 <span class="proj-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="proj-card p3 reveal"
+         href="https://portfolio-weatherops.vercel.app/"
+         target="_blank" rel="noopener">
+        <div class="proj-num">03</div>
+        <div>
+          <div class="proj-title">Weather Ops 대시보드</div>
+          <div class="proj-sub">[OPS] Weather Operations Dashboard</div>
+          <p class="proj-desc">
+            Weather Ops 원본 구조에 맞춰 <strong>기상 리스크, 현장 조치, AS 차단, 회복률, CRM 실행 대기</strong>를 한 화면에 정리했습니다.<br>
+            지점별 위험도와 D-day/D+1/D+2 회복 흐름을 운영팀·마케팅팀 액션으로 연결하도록 설계했습니다.
+          </p>
+          <div class="chips">
+            <span class="chip">기상 리스크</span>
+            <span class="chip">AS 차단</span>
+            <span class="chip">회복 큐</span>
+            <span class="chip">CRM 실행</span>
+            <span class="chip">운영 타임라인</span>
           </div>
         </div>
         <div class="proj-cta">
