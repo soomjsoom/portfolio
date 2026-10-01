@@ -1,1699 +1,343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>전수민 | 사업운영 리더</title>
-<meta name="description" content="매출 성장과 고객 유지를 이끄는 사업운영 리더 전수민. 오토스테이의 운영 체계 구축 경험과 패스트파이브의 고객 유지, 매출 성장, 팀 성과 관리 경험을 소개합니다.">
-<meta property="og:title" content="전수민 | 사업운영 리더">
-<meta property="og:description" content="손익과 고객 데이터를 바탕으로 개선 과제를 정하고, 팀과 현장이 실행할 수 있는 운영 체계를 만듭니다.">
-<link rel="canonical" href="https://soominj-portfolio.vercel.app/">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css">
-<style>
-/* ─────────────────────────────
-   DESIGN TOKENS
-───────────────────────────── */
-:root {
-  --bg:           #f6f5f1;
-  --surface:      #ffffff;
-  --surface-2:    #f0efe9;
-  --border:       #e4e1d8;
-  --border-soft:  #eeece6;
-  --text:         #111110;
-  --text-muted:   #6b6861;
-  --text-subtle:  #a19e99;
-
-  --blue:         #1d4ed8;
-  --blue-hover:   #1e3a8a;
-  --blue-light:   #eff6ff;
-  --blue-mid:     rgba(29,78,216,0.12);
-  --red:          #dc2626;
-  --red-light:    #fef2f2;
-  --green:        #059669;
-  --green-light:  #ecfdf5;
-  --amber:        #d97706;
-  --amber-light:  #fffbeb;
-
-  --r-sm: 6px;
-  --r-md: 12px;
-  --r-lg: 18px;
-  --r-xl: 24px;
-  --r-full: 999px;
-
-  --shadow-sm: 0 1px 3px rgba(17,17,16,0.06), 0 1px 2px rgba(17,17,16,0.04);
-  --shadow-md: 0 6px 20px rgba(17,17,16,0.07), 0 2px 6px rgba(17,17,16,0.04);
-  --shadow-lg: 0 16px 40px rgba(17,17,16,0.09), 0 4px 12px rgba(17,17,16,0.05);
-  --shadow-xl: 0 28px 56px rgba(17,17,16,0.11), 0 8px 20px rgba(17,17,16,0.06);
-
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --t: 0.22s;
-}
-
-/* ─────────────────────────────
-   RESET & BASE
-───────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
-               'Helvetica Neue', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  letter-spacing: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
-
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-strong { font-weight: 750; letter-spacing: 0; word-spacing: 0; }
-
-/* ─────────────────────────────
-   SCROLL PROGRESS
-───────────────────────────── */
-#progress {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, var(--blue) 0%, #6366f1 50%, var(--blue) 100%);
-  z-index: 9999;
-  transition: width 0.08s linear;
-  pointer-events: none;
-}
-
-/* ─────────────────────────────
-   LAYOUT
-───────────────────────────── */
-.wrap  { max-width: 960px; margin: 0 auto; padding: 0 32px; }
-.wrap-sm { max-width: 760px; margin: 0 auto; padding: 0 32px; }
-
-/* ─────────────────────────────
-   NAV
-───────────────────────────── */
-.nav {
-  position: sticky;
-  top: 0; z-index: 200;
-  background: rgba(246,245,241,.84);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
-  border-bottom: 1px solid var(--border-soft);
-}
-.nav-inner {
-  max-width: 960px; margin: 0 auto; padding: 0 32px;
-  height: 56px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px;
-}
-.nav-brand {
-  font-size: 14px; font-weight: 700;
-  letter-spacing: 0; white-space: nowrap;
-  flex-shrink: 0;
-}
-.nav-brand em { font-style: normal; color: var(--blue); }
-
-.nav-links {
-  display: flex; gap: 2px;
-  overflow-x: auto; scrollbar-width: none;
-}
-.nav-links::-webkit-scrollbar { display: none; }
-.nav-links a {
-  font-size: 13px; font-weight: 500;
-  color: var(--text-muted);
-  padding: 6px 11px; border-radius: var(--r-full);
-  white-space: nowrap;
-  transition: background var(--t) var(--ease), color var(--t) var(--ease);
-}
-.nav-links a:hover, .nav-links a.active {
-  background: var(--surface); color: var(--text);
-}
-
-.nav-cta {
-  font-size: 13px; font-weight: 600;
-  color: var(--blue);
-  padding: 7px 16px;
-  border: 1.5px solid var(--blue);
-  border-radius: var(--r-full);
-  white-space: nowrap; flex-shrink: 0;
-  transition: background var(--t) var(--ease), color var(--t) var(--ease);
-}
-.nav-cta:hover { background: var(--blue); color: #fff; }
-
-/* hamburger */
-.nav-hamburger {
-  display: none;
-  background: none; border: none; cursor: pointer;
-  padding: 6px; color: var(--text);
-  flex-shrink: 0;
-}
-.nav-hamburger svg { display: block; }
-
-/* mobile drawer */
-.nav-drawer {
-  display: none;
-  position: fixed; inset: 0; z-index: 190;
-  background: rgba(17,17,16,.45);
-}
-.nav-drawer.open { display: block; }
-.nav-drawer-panel {
-  position: absolute; top: 56px; left: 0; right: 0;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 12px 20px 20px;
-  display: flex; flex-direction: column; gap: 2px;
-  box-shadow: var(--shadow-md);
-}
-.nav-drawer-panel a {
-  font-size: 15px; font-weight: 500;
-  color: var(--text-muted);
-  padding: 10px 12px; border-radius: var(--r-md);
-  transition: background var(--t) var(--ease), color var(--t) var(--ease);
-}
-.nav-drawer-panel a:hover { background: var(--bg); color: var(--text); }
-.nav-drawer-panel .drawer-cta {
-  margin-top: 8px;
-  background: var(--blue); color: #fff;
-  text-align: center; border-radius: var(--r-full);
-  padding: 11px 12px; font-weight: 600;
-}
-.nav-drawer-panel .drawer-cta:hover { background: var(--blue-hover); }
-
-@media (max-width: 720px) {
-  .nav-links, .nav-cta { display: none; }
-  .nav-hamburger { display: flex; }
-}
-
-/* ─────────────────────────────
-   HERO
-───────────────────────────── */
-.hero {
-  background: #0b1526;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  padding: 96px 0 84px;
-}
-.hero-bg {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 55% at 15% 50%,  rgba(29,78,216,.20) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 75% at 82% 18%,  rgba(99,102,241,.13) 0%, transparent 58%),
-    radial-gradient(ellipse 38% 42% at 58% 82%,  rgba(5,150,105,.09) 0%, transparent 60%);
-}
-.hero-rule {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
-}
-.hero .wrap { position: relative; z-index: 1; }
-
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0; text-transform: uppercase;
-  color: rgba(255,255,255,.40);
-  margin-bottom: 22px;
-}
-.hero-eyebrow::before {
-  content: ''; width: 22px; height: 1.5px;
-  background: #60a5fa; flex-shrink: 0;
-}
-
-.hero-name {
-  font-size: 82px;
-  font-weight: 900; letter-spacing: 0; line-height: 1.0;
-  color: #fff; margin-bottom: 22px;
-}
-.hero-name .accent { color: #60a5fa; }
-
-.hero-tagline { max-width: 680px; margin-bottom: 20px; }
-.hero-career { font-size: 14px; color: #cbd5e1; margin-bottom: 28px; }
-.stats-caption { font-size: 12px; color: #cbd5e1; margin-bottom: 10px; }
-.hero-tagline p {
-  font-size: 18px;
-  font-weight: 400; line-height: 1.62;
-  letter-spacing: 0;
-}
-.hero-tagline p:first-child {
-  font-size: 20px;
-  font-weight: 600;
-  color: rgba(255,255,255,.86);
-  margin-bottom: 8px;
-}
-.hero-tagline p:last-child {
-  color: rgba(255,255,255,.52);
-}
-
-/* stats grid */
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  max-width: 100%;
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  background: rgba(255,255,255,.03);
-  margin-bottom: 42px;
-}
-.hero-stat {
-  padding: 20px 16px;
-  min-width: 0;
-  border-right: 1px solid rgba(255,255,255,.09);
-}
-.hero-stat:last-child { border-right: none; }
-.hs-value {
-  font-size: 27px;
-  font-weight: 800; letter-spacing: 0;
-  line-height: 1.1; color: #fff; margin-bottom: 5px;
-  font-variant-numeric: tabular-nums;
-}
-.hs-value .u { font-size: .55em; font-weight: 600; color: rgba(255,255,255,.45); }
-.hs-label { font-size: 13px; font-weight: 500; color: #e2e8f0; line-height: 1.5; min-height: 39px; }
-.hs-sub { font-size: 11px; color: #aebccd; margin-top: 8px; line-height: 1.6; }
-.hs-value { white-space: nowrap; }
-
-.hero-meta {
-  display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
-  font-size: 13px; color: rgba(255,255,255,.40);
-  word-break: keep-all;
-}
-.hero-meta a {
-  display: flex; align-items: center; gap: 6px;
-  color: rgba(255,255,255,.58);
-  transition: color var(--t) var(--ease);
-}
-.hero-meta a:hover { color: #fff; }
-.hero-meta a svg { flex-shrink: 0; }
-.hm-dot {
-  width: 3px; height: 3px; border-radius: 50%;
-  background: rgba(255,255,255,.2); flex-shrink: 0;
-}
-
-/* featured tools */
-.featured-tools {
-  background: #0b1526;
-  color: #fff;
-  padding: 0 0 72px;
-}
-.ft-shell {
-  display: grid;
-  grid-template-columns: minmax(220px, .85fr) 1.35fr;
-  gap: 22px;
-  align-items: stretch;
-  padding-top: 28px;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-.ft-copy {
-  padding: 22px 8px 22px 0;
-}
-.ft-label {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.38);
-  margin-bottom: 11px;
-}
-.ft-title {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.22;
-  margin-bottom: 10px;
-}
-.ft-desc {
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: rgba(255,255,255,.52);
-  max-width: 420px;
-  word-break: keep-all;
-}
-.ft-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-.ft-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 190px;
-  padding: 22px 22px 20px;
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: var(--r-md);
-  background: rgba(255,255,255,.035);
-  transition: transform var(--t) var(--ease),
-              border-color var(--t) var(--ease),
-              background var(--t) var(--ease);
-}
-.ft-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(96,165,250,.42);
-  background: rgba(255,255,255,.055);
-}
-.ft-num {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0;
-  color: #60a5fa;
-  margin-bottom: 18px;
-}
-.ft-card h3 {
-  font-size: 17px;
-  line-height: 1.32;
-  letter-spacing: 0;
-  margin-bottom: 9px;
-}
-.ft-card p {
-  font-size: 13px;
-  line-height: 1.62;
-  color: rgba(255,255,255,.56);
-  word-break: keep-all;
-}
-.ft-card span {
-  margin-top: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255,255,255,.86);
-}
-
-/* ─────────────────────────────
-   SECTIONS
-───────────────────────────── */
-.section { padding: 88px 0; }
-.section + .section { border-top: 1px solid var(--border); }
-
-.sec-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0; text-transform: uppercase;
-  color: var(--text-subtle);
-  margin-bottom: 22px;
-}
-.sec-label::before {
-  content: ''; width: 16px; height: 1.5px;
-  background: var(--blue); flex-shrink: 0;
-}
-
-.sec-heading {
-  font-size: 40px;
-  font-weight: 800; letter-spacing: 0; line-height: 1.18;
-  margin-bottom: 14px;
-}
-.sec-desc {
-  font-size: 15px; color: var(--text-muted);
-  line-height: 1.72; max-width: 640px;
-  margin-bottom: 46px;
-  word-break: keep-all;
-}
-
-/* ─────────────────────────────
-   ABOUT
-───────────────────────────── */
-.about-body {
-  font-size: 16px; line-height: 1.82;
-  max-width: 800px; color: var(--text);
-  margin-bottom: 48px;
-  word-break: keep-all;
-}
-.about-body p { margin-bottom: 20px; text-wrap: pretty; }
-.about-body p:last-child { margin-bottom: 0; }
-.about-body strong { font-weight: 780; }
-.about-br { display: block; }
-
-/* pillar grid */
-.pillar-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-bottom: 52px;
-}
-.pillar {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 26px 28px 28px;
-  position: relative; overflow: hidden;
-  transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
-}
-.pillar:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.pillar-bar {
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px; border-radius: var(--r-xl) var(--r-xl) 0 0;
-}
-.pillar.c-blue  .pillar-bar { background: var(--blue); }
-.pillar.c-red   .pillar-bar { background: var(--red); }
-.pillar.c-green .pillar-bar { background: var(--green); }
-.pillar.c-amber .pillar-bar { background: var(--amber); }
-
-.pillar-icon {
-  width: 38px; height: 38px; border-radius: var(--r-md);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 17px; margin-bottom: 14px;
-}
-.pillar.c-blue  .pillar-icon { background: var(--blue-light); }
-.pillar.c-red   .pillar-icon { background: var(--red-light); }
-.pillar.c-green .pillar-icon { background: var(--green-light); }
-.pillar.c-amber .pillar-icon { background: var(--amber-light); }
-
-.pillar-title {
-  font-size: 14px; font-weight: 700;
-  letter-spacing: 0; margin-bottom: 7px;
-}
-.pillar-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; word-break: keep-all; }
-
-/* metrics band */
-.metrics-band {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  overflow: hidden;
-}
-.mb-item {
-  padding: 26px 22px;
-  border-right: 1px solid var(--border);
-}
-.mb-item:last-child { border-right: none; }
-.mb-num {
-  font-size: 32px;
-  font-weight: 900; letter-spacing: 0;
-  font-variant-numeric: tabular-nums; line-height: 1;
-  margin-bottom: 7px;
-}
-.mb-num .c-blue  { color: var(--blue); }
-.mb-num .c-green { color: var(--green); }
-.mb-num .c-red   { color: var(--red); }
-.mb-label { font-size: 12px; color: var(--text-muted); font-weight: 500; line-height: 1.55;
-            word-break: keep-all; }
-
-/* ─────────────────────────────
-   EXPERIENCE / TIMELINE
-───────────────────────────── */
-.exp-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 600; color: var(--text-muted);
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-full); padding: 8px 16px;
-  margin-bottom: 20px;
-}
-.exp-badge .live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--green); flex-shrink: 0;
-  box-shadow: 0 0 0 3px rgba(5,150,105,.15);
-  animation: pulse 2.2s infinite;
-}
-@keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 3px rgba(5,150,105,.15); }
-  50%      { box-shadow: 0 0 0 6px rgba(5,150,105,.07); }
-}
-
-.career-snapshot {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 52px;
-}
-.career-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 22px 22px 24px;
-}
-.career-kicker {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 10px;
-}
-.career-card h3 {
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: 0;
-  margin-bottom: 8px;
-}
-.career-card p {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--text-muted);
-  word-break: keep-all;
-}
-
-.timeline { position: relative; }
-.timeline::before {
-  content: ''; position: absolute;
-  left: 19px; top: 28px; bottom: 28px;
-  width: 1.5px; background: var(--border);
-}
-
-.tl-item {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 24px;
-  padding-bottom: 52px;
-}
-.tl-item:last-child { padding-bottom: 0; }
-
-.tl-dot-wrap {
-  display: flex; flex-direction: column; align-items: center;
-  padding-top: 7px; position: relative; z-index: 1; width: 40px;
-}
-.tl-dot {
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--surface); border: 2.5px solid var(--border);
-  flex-shrink: 0; transition: border-color var(--t) var(--ease);
-}
-.tl-item.current .tl-dot {
-  border-color: var(--blue); background: var(--blue);
-  box-shadow: 0 0 0 4px rgba(29,78,216,.12);
-}
-
-.tl-body { padding-top: 0; }
-
-.tl-head { margin-bottom: 18px; }
-.tl-company {
-  font-size: 22px;
-  font-weight: 800; letter-spacing: 0;
-  line-height: 1.25; margin-bottom: 8px;
-  display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
-}
-.tl-badge {
-  font-size: 10.5px; font-weight: 600;
-  padding: 3px 9px; border-radius: 4px;
-  background: var(--blue-light); color: var(--blue);
-  letter-spacing: 0;
-}
-.tl-badge.live { background: rgba(5,150,105,.10); color: var(--green); }
-
-.tl-meta {
-  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
-  font-size: 12.5px; color: var(--text-muted); font-weight: 500;
-  word-break: keep-all;
-}
-.tl-meta .sep { color: var(--border); }
-.tl-tag {
-  font-size: 11px; padding: 2px 8px;
-  background: var(--surface-2); border: 1px solid var(--border);
-  border-radius: 4px; color: var(--text-muted);
-}
-
-.tl-rule { height: 1px; background: var(--border-soft); margin: 16px 0 22px; }
-
-.tl-sub { margin-bottom: 26px; }
-.tl-sub:last-child { margin-bottom: 0; }
-.tl-sub-title {
-  font-size: 14px; font-weight: 700;
-  letter-spacing: 0; margin-bottom: 3px; color: var(--text);
-}
-.tl-sub-period {
-  font-size: 11.5px; color: var(--text-subtle);
-  font-variant-numeric: tabular-nums; font-weight: 500;
-  margin-bottom: 13px;
-}
-
-.bullets {
-  list-style: none; padding: 0;
-  font-size: 13.5px; line-height: 1.72; color: var(--text);
-  display: flex; flex-direction: column; gap: 5px;
-  word-break: keep-all;
-}
-.bullets li { display: block; position: relative; padding-left: 20px; text-wrap: pretty; }
-.bullets li::before {
-  content: '-'; color: var(--text-subtle); font-weight: 600;
-  position: absolute; left: 0; top: 0; line-height: inherit;
-}
-.bullets strong {
-  font-weight: 700;
-  line-height: inherit;
-  letter-spacing: 0;
-  word-spacing: 0;
-}
-
-.tag-inline {
-  display: inline-flex; align-items: center;
-  font-size: 10.5px; font-weight: 700;
-  padding: 2px 7px; border-radius: 4px;
-  margin-left: 5px; vertical-align: middle;
-}
-.tag-inline.b  { background: var(--blue-light);  color: var(--blue); }
-.tag-inline.g  { background: var(--green-light); color: var(--green); }
-.tag-inline.r  { background: var(--red-light);   color: var(--red); }
-
-/* ─────────────────────────────
-   PROJECTS
-───────────────────────────── */
-.project-list { display: flex; flex-direction: column; gap: 18px; }
-
-.proj-card {
-  display: grid;
-  grid-template-columns: 48px 1fr auto;
-  gap: 26px;
-  align-items: flex-start;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 30px 34px;
-  position: relative; overflow: hidden;
-  transition: transform var(--t) var(--ease),
-              box-shadow var(--t) var(--ease),
-              border-color var(--t) var(--ease);
-  cursor: pointer;
-}
-.proj-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: transparent;
-}
-.proj-card::before {
-  content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4px;
-  transition: width var(--t) var(--ease);
-}
-.proj-card.p1::before { background: linear-gradient(180deg, var(--blue), #6366f1); }
-.proj-card.p2::before { background: linear-gradient(180deg, var(--green), #0ea5e9); }
-.proj-card.p3::before { background: linear-gradient(180deg, var(--amber), #f97316); }
-.proj-card:hover::before { width: 6px; }
-
-.proj-num {
-  font-size: 12px; font-weight: 700; color: var(--text-subtle);
-  letter-spacing: 0; font-variant-numeric: tabular-nums;
-  padding-top: 4px;
-}
-.proj-title {
-  font-size: 22px;
-  font-weight: 800; letter-spacing: 0; line-height: 1.25;
-  margin-bottom: 3px;
-}
-.proj-sub {
-  font-size: 10.5px; color: var(--text-subtle);
-  font-weight: 500; letter-spacing: 0;
-  text-transform: uppercase; margin-bottom: 13px;
-}
-.proj-desc {
-  font-size: 13.5px; color: var(--text-muted);
-  line-height: 1.7; margin-bottom: 14px; max-width: 620px;
-  word-break: keep-all;
-}
-.proj-desc strong {
-  color: var(--text);
-  font-weight: 700;
-  line-height: inherit;
-  letter-spacing: 0;
-  word-spacing: 0;
-}
-
-.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.chip {
-  font-size: 11px; font-weight: 500;
-  padding: 4px 10px;
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: var(--r-full); color: var(--text-muted);
-}
-
-.proj-cta {
-  display: inline-flex; align-items: center; gap: 7px;
-  padding: 10px 18px;
-  font-size: 13px; font-weight: 600;
-  background: var(--text); color: #fff;
-  border-radius: var(--r-full); white-space: nowrap; flex-shrink: 0;
-  transition: background var(--t) var(--ease);
-}
-.proj-card:hover .proj-cta { background: var(--blue); }
-.proj-arrow { display: inline-block; transition: transform var(--t) var(--ease); }
-.proj-card:hover .proj-arrow { transform: translateX(3px); }
-
-/* ─────────────────────────────
-   SKILLS
-───────────────────────────── */
-.skills-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 52px; align-items: start;
-}
-.sk-group { margin-bottom: 26px; }
-.sk-group:last-child { margin-bottom: 0; }
-.sk-label {
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0; text-transform: uppercase;
-  color: var(--blue); margin-bottom: 11px;
-}
-.sk-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-.sk-tag {
-  font-size: 13px; font-weight: 500;
-  padding: 6px 14px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-full); color: var(--text);
-  transition: border-color var(--t) var(--ease),
-              color var(--t) var(--ease),
-              background var(--t) var(--ease);
-}
-.sk-tag:hover {
-  border-color: var(--blue); color: var(--blue);
-  background: var(--blue-light);
-}
-
-.edu-col { display: flex; flex-direction: column; gap: 12px; }
-.edu-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: 18px 20px;
-}
-.edu-school { font-size: 14.5px; font-weight: 700; margin-bottom: 3px; }
-.edu-major  { font-size: 12.5px; color: var(--text-muted); margin-bottom: 9px; }
-.edu-period {
-  font-size: 11.5px; color: var(--text-subtle);
-  font-variant-numeric: tabular-nums;
-  padding-top: 9px; border-top: 1px solid var(--border-soft);
-}
-.edu-card.lang {
-  background: var(--blue-light);
-  border-color: rgba(29,78,216,.14);
-}
-.edu-card.lang .edu-school { color: var(--blue); }
-.edu-card.lang .edu-period { border-top-color: rgba(29,78,216,.10); }
-
-.edu-card.exchange {
-  background: var(--surface);
-  border-color: var(--border);
-  border-left: 3px solid var(--blue);
-  padding-left: 17px;
-}
-.edu-card.exchange .edu-school { color: var(--text); }
-.edu-card.exchange .edu-major  { display: flex; align-items: center; gap: 6px; }
-.edu-card.exchange .exchange-badge {
-  font-size: 10px; font-weight: 700;
-  padding: 2px 6px; border-radius: 3px;
-  background: var(--blue-light); color: var(--blue);
-  letter-spacing: 0; flex-shrink: 0;
-}
-
-/* ─────────────────────────────
-   CONTACT
-───────────────────────────── */
-.contact {
-  background: #0b1526; color: #fff;
-  padding: 96px 0;
-  position: relative; overflow: hidden;
-}
-.contact-bg {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 75% 55% at 80% 50%, rgba(29,78,216,.16) 0%, transparent 60%);
-}
-.contact .wrap { position: relative; z-index: 1; }
-
-.ct-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0; text-transform: uppercase;
-  color: rgba(255,255,255,.32); margin-bottom: 18px;
-}
-.ct-label::before {
-  content: ''; width: 16px; height: 1.5px;
-  background: #60a5fa; flex-shrink: 0;
-}
-.ct-heading {
-  font-size: 46px;
-  font-weight: 800; letter-spacing: 0;
-  line-height: 1.18; color: #fff; margin-bottom: 14px;
-}
-.ct-sub {
-  font-size: 15px; color: rgba(255,255,255,.48);
-  line-height: 1.7; max-width: 500px; margin-bottom: 38px;
-  word-break: keep-all;
-}
-.ct-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-.ct-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 22px;
-  font-size: 13.5px; font-weight: 600;
-  border-radius: var(--r-full); border: 1.5px solid transparent;
-  transition: all var(--t) var(--ease);
-}
-.ct-btn.primary {
-  background: #2563eb; color: #fff; border-color: #2563eb;
-}
-.ct-btn.primary:hover { background: var(--blue-hover); border-color: var(--blue-hover); transform: translateY(-1px); }
-.ct-btn.outline {
-  background: transparent; color: rgba(255,255,255,.65);
-  border-color: rgba(255,255,255,.14);
-}
-.ct-btn.outline:hover { border-color: rgba(255,255,255,.36); color: #fff; }
-
-/* ─────────────────────────────
-   FOOTER
-───────────────────────────── */
-.footer {
-  background: #07101e;
-  padding: 26px 0 40px;
-}
-.footer-inner {
-  max-width: 960px; margin: 0 auto; padding: 0 32px;
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 10px;
-  font-size: 11.5px; color: rgba(255,255,255,.20);
-}
-
-/* ─────────────────────────────
-   ANIMATIONS
-───────────────────────────── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.fu { animation: fadeUp .65s var(--ease) both; }
-.d1 { animation-delay: .08s; }
-.d2 { animation-delay: .16s; }
-.d3 { animation-delay: .24s; }
-.d4 { animation-delay: .32s; }
-.d5 { animation-delay: .40s; }
-
-.reveal {
-  opacity: 0; transform: translateY(16px);
-  transition: opacity .6s var(--ease), transform .6s var(--ease);
-}
-.reveal.in { opacity: 1; transform: translateY(0); }
-
-/* ─────────────────────────────
-   RESPONSIVE — tablet (≤ 900px)
-───────────────────────────── */
-@media (max-width: 900px) {
-  .hero-stats { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
-  .hero-stat:nth-child(2) { border-right: none; }
-  .hero-stat:nth-child(3) { border-top: 1px solid rgba(255,255,255,.09); }
-
-  .ft-shell { grid-template-columns: 1fr; }
-  .ft-copy { padding: 0; }
-
-  .metrics-band { grid-template-columns: repeat(2, 1fr); }
-  .mb-item:nth-child(2) { border-right: none; }
-  .mb-item:nth-child(3) { border-top: 1px solid var(--border); }
-
-  .career-snapshot { grid-template-columns: 1fr; }
-
-  .skills-grid { grid-template-columns: 1fr; gap: 36px; }
-}
-
-/* ─────────────────────────────
-   RESPONSIVE — mobile (≤ 600px)
-───────────────────────────── */
-@media (max-width: 600px) {
-  .wrap, .wrap-sm { padding: 0 20px; }
-  .section { padding: 64px 0; }
-
-  /* hero */
-  .hero { padding: 68px 0 58px; }
-  .hero-name { letter-spacing: 0; }
-  .hero-tagline p:first-child { font-size: 16px; }
-  .hero-tagline p:last-child  { font-size: 14px; }
-
-  .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 100%;
-  }
-  .hero-stat {
-    padding: 16px 16px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,.09);
-  }
-  .hero-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.09); }
-  .hero-stat:nth-child(3),
-  .hero-stat:nth-child(4)   { border-bottom: none; }
-
-  .hero-meta { gap: 12px; font-size: 12px; }
-  .hm-dot { display: none; }
-  .hero-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
-
-  .about-br { display: none; }
-
-  /* featured tools */
-  .featured-tools { padding-bottom: 56px; }
-  .ft-shell { padding-top: 22px; gap: 16px; }
-  .ft-grid { grid-template-columns: 1fr; }
-  .ft-card { min-height: 164px; padding: 20px; }
-
-  /* pillar */
-  .pillar-grid { grid-template-columns: 1fr; }
-
-  /* metrics */
-  .metrics-band { grid-template-columns: repeat(2, 1fr); }
-  .mb-item { padding: 20px 18px; }
-  .mb-item:nth-child(2) { border-right: none; }
-  .mb-item:nth-child(3) { border-top: 1px solid var(--border); }
-
-  /* timeline */
-  .timeline::before { left: 14px; }
-  .tl-item { grid-template-columns: 30px 1fr; gap: 14px; }
-  .tl-dot-wrap { width: 30px; }
-  .tl-company { font-size: 18px; }
-  .tl-meta { gap: 7px; font-size: 12px; }
-  .bullets { font-size: 13px; }
-
-  /* project cards */
-  .proj-card {
-    grid-template-columns: 1fr;
-    padding: 22px 22px 22px 26px;
-    gap: 12px;
-  }
-  .proj-num { padding-top: 0; }
-  .proj-cta { align-self: flex-start; margin-top: 4px; }
-
-  /* skills */
-  .skills-grid { grid-template-columns: 1fr; }
-
-  /* contact */
-  .ct-heading { line-height: 1.22; }
-  .ct-btns { flex-direction: column; gap: 10px; }
-  .ct-btn { justify-content: center; }
-
-  /* footer */
-  .footer-inner { flex-direction: column; align-items: flex-start; gap: 6px; }
-}
-
-/* ─────────────────────────────
-   RESPONSIVE — tiny (≤ 380px)
-───────────────────────────── */
-@media (max-width: 380px) {
-  .hero-stat { padding: 14px 10px; }
-  .hs-value { font-size: 22px; }
-}
-.career-basis, .evidence-caption { font-size: 12px; color: var(--text-muted); margin-bottom: 20px; }
-.mb-num { font-size: 27px; }
-.tl-body, .proj-card > div { min-width: 0; }
-.proj-desc, .pillar-desc, .career-card p, .ft-card p, .ct-sub { text-wrap: pretty; }
-.sec-heading, .ft-title, .ct-heading, .hero-tagline p:first-child { text-wrap: balance; }
-[data-career-total], [data-career-duration] { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.hero { padding: 64px 0 48px; }
-.hero-tagline p:first-child { font-size: 26px; }
-.hero-tagline p:last-child { color: #b7c4d5; }
-.hero-meta { color: #aebccd; }
-.hero-meta a { color: #cbd5e1; }
-.hs-value .u { color: #b7c4d5; }
-@media (max-width: 900px) {
-  .hero-stat:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.09); }
-  .mb-item:nth-child(n+3) { border-top: 1px solid var(--border); }
-}
-@media (max-width: 600px) {
-  .hero { padding: 40px 0 36px; }
-  .hero-name { font-size: 54px; }
-  .hero-tagline p:first-child { font-size: 22px; }
-  .sec-heading { font-size: 28px; line-height: 1.35; }
-  .ct-heading { font-size: 30px; }
-  .desktop-br { display: none; }
-  .hs-label { min-height: 39px; font-size: 12px; }
-  .hs-sub { font-size: 10.5px; }
-  .hero-stat:nth-child(n+3) { border-top: none; }
-  .proj-desc br { display: none; }
-  .mb-num { font-size: 24px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .fu, .reveal { opacity: 1; transform: none; }
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="전수민의 사업운영 포트폴리오. CRM 기반 고객 유지와 매출 성장, 손익 관리, 현장 운영 표준화 경험을 소개합니다.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="전수민 | 사업운영 리더">
+  <meta property="og:description" content="매출 성장과 고객 유지를 이끄는 사업운영 리더. 경력과 성과, 운영 의사결정 도구를 소개합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soominj-portfolio.vercel.app/">
+  <title>전수민 | 사업운영 리더</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <style>
+    :root { color-scheme: light; --ink: #11191d; --muted: #576570; --accent: #00785e; --line: #dce3e6; --soft: #f5f8f8; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: #fff; font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.65; letter-spacing: 0; word-break: keep-all; overflow-wrap: anywhere; }
+    h1, h2, h3, h4, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    a, button, summary { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #008b70; outline-offset: 5px; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1160px, calc(100% - 80px)); margin-inline: auto; }
+    .skip { position: fixed; top: -70px; left: 16px; z-index: 20; background: var(--ink); color: #fff; padding: 10px 18px; }
+    .skip:focus { top: 12px; }
+    .site-header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line); background: #fffffffa; }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; gap: 32px; }
+    .brand { font-size: 20px; font-weight: 750; white-space: nowrap; }
+    .brand span { color: var(--accent); margin: 0 6px; }
+    .site-nav { display: flex; align-items: center; gap: 34px; margin-left: auto; font-size: 14px; font-weight: 550; }
+    .site-nav a { padding-block: 12px; }
+    .site-nav a:hover, .text-link:hover { color: var(--accent); }
+    .contact-link { background: var(--accent); color: white; padding: 9px 22px; border-radius: 6px; font-size: 14px; font-weight: 650; white-space: nowrap; }
+    .contact-link:hover { background: #005e49; }
+    .mobile-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
+    .mobile-toggle span { display: block; height: 2px; background: var(--ink); margin-block: 5px; }
+    .hero { padding-block: 48px 36px; }
+    .eyebrow { color: var(--accent); font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 42px; }
+    .hero h1 { font-size: 76px; font-weight: 800; line-height: 1.13; margin-bottom: 20px; }
+    .hero-title { font-size: 29px; font-weight: 750; line-height: 1.45; text-wrap: balance; }
+    .hero-title span { color: var(--accent); display: inline-block; }
+    .hero-description { font-size: 18px; color: var(--muted); line-height: 1.7; margin-top: 14px; }
+    .hero-description span { display: block; }
+    .hero-role { margin-top: 24px; font-size: 15px; font-weight: 600; }
+    .hero-career { margin-top: 4px; font-size: 15px; color: var(--muted); }
+    .hero-aside { border-left: 1px solid var(--line); padding: 30px 0 16px 30px; align-self: stretch; }
+    .hero-aside::before { content: ""; display: block; width: 40px; height: 3px; background: var(--accent); margin-bottom: 22px; }
+    .hero-aside p { color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .hero-aside .aside-label { margin-top: 32px; color: #63747c; font-size: 11px; line-height: 1.9; }
+    .hero-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 38px; }
+    .metric { padding-inline: 26px; border-left: 1px solid var(--line); }
+    .metric:first-child { padding-left: 0; border: 0; }
+    .metric:last-child { padding-right: 0; }
+    .metric .metric-value { color: var(--accent); font-size: 40px; font-weight: 750; line-height: 1.25; margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; }
+    .metric-value span { font-size: 19px; font-weight: 700; white-space: nowrap; }
+    .metric h2 { font-size: 16px; font-weight: 650; margin-top: 6px; }
+    .metric p { font-size: 14px; color: var(--muted); margin-top: 3px; }
+    .section { padding-block: 34px; border-top: 1px solid var(--line); }
+    .section-heading { display: flex; align-items: flex-start; gap: 34px; margin-bottom: 26px; }
+    .section-heading h2 { font-size: 29px; font-weight: 750; line-height: 1.4; flex: 0 0 195px; }
+    .section-heading > p { border-left: 1px solid var(--line); padding-left: 34px; color: var(--muted); font-size: 15px; max-width: 660px; }
+    .career-basis { font-size: 12px; color: var(--muted); text-align: right; margin-top: -10px; margin-bottom: 10px; }
+    .career-row { display: grid; grid-template-columns: 230px minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+    .career-row:last-child { border-bottom: 0; }
+    .career-company { padding: 22px 26px 22px 18px; border-right: 1px solid var(--line); position: relative; }
+    .career-company::after { content: ""; position: absolute; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; right: -4px; top: 32px; }
+    .career-company h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+    .career-company p { color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .career-status { color: var(--accent); font-size: 12px; display: inline-block; margin-top: 8px; }
+    .career-body { padding: 22px 0 22px 38px; min-width: 0; }
+    .career-role { color: var(--accent); font-size: 18px; font-weight: 650; margin-bottom: 6px; }
+    .career-summary { color: var(--muted); font-size: 15px; max-width: 760px; }
+    .role-path { list-style: none; padding: 0; margin: 5px 0 10px; color: var(--muted); font-size: 14px; }
+    .role-path li { display: grid; grid-template-columns: 142px 1fr; column-gap: 16px; }
+    .role-path .role-period { font-variant-numeric: tabular-nums; }
+    .career-details { margin-top: 12px; }
+    .career-details > summary, .education-more > summary { cursor: pointer; font-size: 13px; color: var(--accent); width: fit-content; min-height: 32px; padding-block: 4px; }
+    .detail-content { padding-top: 18px; }
+    .detail-topic + .detail-topic { margin-top: 22px; }
+    .detail-topic h4 { font-size: 16px; font-weight: 650; line-height: 1.55; }
+    .detail-period { color: var(--muted); font-size: 13px; margin-top: 3px; }
+    .detail-topic:first-of-type { margin-top: 10px; }
+    .bullets { color: var(--muted); font-size: 14px; padding-left: 19px; margin: 8px 0 0; }
+    .bullets li { padding-left: 3px; line-height: 1.85; }
+    .bullets li + li { margin-top: 5px; }
+    .projects-note { color: var(--muted); font-size: 13px; margin-top: -12px; margin-bottom: 22px; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .project { min-width: 0; }
+    .preview-link { display: block; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--soft); }
+    .preview-link:hover { border-color: var(--accent); }
+    .preview-link img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .project-kicker { color: var(--muted); font-size: 11px; margin-top: 13px; }
+    .project h3 { font-size: 18px; font-weight: 700; margin-top: 3px; }
+    .project p { color: var(--muted); font-size: 14px; margin-top: 7px; line-height: 1.7; }
+    .project p span { display: block; }
+    .text-link { color: var(--accent); font-size: 14px; font-weight: 650; display: inline-block; padding-block: 9px; margin-top: 3px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .skill-group h3 { font-size: 15px; font-weight: 650; margin-bottom: 8px; }
+    .skill-group p { color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .education { display: grid; grid-template-columns: 110px 1fr 1fr; gap: 30px; }
+    .education h2 { font-size: 23px; }
+    .education-item { border-left: 1px solid var(--line); padding-left: 28px; }
+    .education-item h3 { font-size: 16px; font-weight: 650; }
+    .education-item p { font-size: 14px; color: var(--muted); }
+    .education-more { margin-top: 20px; }
+    .education-more > div { color: var(--muted); font-size: 14px; margin-top: 8px; }
+    .contact { border-top: 1px solid var(--line); background: var(--soft); padding-block: 34px; }
+    .contact-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .contact h2 { font-size: 25px; font-weight: 700; }
+    .contact p { color: var(--muted); font-size: 14px; margin-top: 7px; max-width: 650px; }
+    .contact-actions { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
+    .contact-actions > a:not(.contact-link) { color: var(--muted); font-size: 13px; }
+    footer { padding-block: 18px; color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; }
+    @media (max-width: 1080px) {
+      .wrap { width: calc(100% - 64px); }
+      .hero-grid { grid-template-columns: minmax(0, 1fr) 220px; gap: 28px; }
+      .hero h1 { font-size: 68px; }
+      .hero-title { font-size: 26px; }
+      .metric { padding-inline: 18px; }
+      .metric .metric-value { font-size: 36px; }
+      .metric-value span { font-size: 16px; }
+      .metric h2 { font-size: 15px; }
+      .metric p { font-size: 13px; }
+    }
+    @media (max-width: 820px) {
+      .wrap { width: calc(100% - 48px); }
+      .site-nav { gap: 24px; }
+      .nav-inner { gap: 22px; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr); }
+      .hero-aside { display: none; }
+      .hero h1 { font-size: 64px; }
+      .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+      .metric:nth-child(3) { border: 0; padding-left: 0; }
+      .metric:nth-child(2) { padding-right: 0; }
+      .metric .metric-value { font-size: 40px; }
+      .metric-value span { font-size: 18px; }
+      .section-heading h2 { flex-basis: 160px; font-size: 26px; }
+      .section-heading { gap: 24px; }
+      .section-heading > p { padding-left: 24px; }
+      .career-row { grid-template-columns: 190px minmax(0, 1fr); }
+      .career-company { padding-left: 0; }
+      .career-body { padding-left: 28px; }
+      .project-grid { gap: 18px; }
+      .project h3 { font-size: 16px; }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .education { grid-template-columns: 90px 1fr 1fr; gap: 18px; }
+      .education-item { padding-left: 18px; }
+      .contact-inner { align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      html { scroll-padding-top: 76px; }
+      .wrap { width: calc(100% - 40px); }
+      .nav-inner { min-height: 64px; gap: 12px; flex-wrap: wrap; position: relative; }
+      .brand { font-size: 17px; }
+      .nav-inner > .contact-link { padding: 7px 12px; font-size: 12px; margin-left: auto; }
+      .mobile-toggle { display: block; }
+      .site-nav { order: 4; margin: 0; width: 100%; justify-content: space-between; gap: 8px; padding-bottom: 8px; }
+      .js .site-nav { display: none; }
+      .js .site-nav.is-open { display: flex; }
+      .hero { padding-block: 34px 28px; }
+      .hero h1 { font-size: 58px; margin-bottom: 18px; }
+      .hero-title { font-size: 24px; line-height: 1.5; }
+      .hero-description { font-size: 16px; }
+      .hero-description span { display: inline; }
+      .hero-role { font-size: 13px; margin-top: 22px; }
+      .hero-role span { display: block; }
+      .hero-role .role-divider { display: none; }
+      .hero-career { font-size: 13px; margin-top: 7px; }
+      .hero-metrics { margin-top: 28px; row-gap: 22px; }
+      .metric { padding-inline: 16px; }
+      .metric .metric-value { font-size: 32px; }
+      .metric-value span { font-size: 14px; }
+      .metric h2 { font-size: 14px; line-height: 1.6; margin-top: 8px; }
+      .metric p { font-size: 12px; }
+      .section { padding-block: 28px; }
+      .section-heading { display: block; margin-bottom: 20px; }
+      .section-heading h2 { font-size: 25px; }
+      .section-heading > p { border: 0; padding: 0; margin-top: 8px; font-size: 14px; }
+      .career-basis { text-align: left; margin-top: 0; margin-bottom: 6px; font-size: 11px; }
+      .career-row { grid-template-columns: minmax(0, 1fr); }
+      .career-company { border: 0; padding: 20px 0 8px; }
+      .career-company::after { display: none; }
+      .career-company h3 { font-size: 18px; }
+      .career-company p { display: inline; font-size: 13px; }
+      .career-company p + p::before { content: " / "; }
+      .career-status { display: block; margin-top: 4px; }
+      .career-body { padding: 0 0 20px; }
+      .career-role { font-size: 16px; }
+      .career-summary { font-size: 14px; }
+      .role-path { font-size: 13px; }
+      .role-path li { grid-template-columns: 130px 1fr; gap: 8px; }
+      .detail-topic h4 { font-size: 15px; }
+      .projects-note { margin-top: 0; font-size: 12px; }
+      .project-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .project h3 { font-size: 18px; }
+      .preview-link { max-width: 520px; }
+      .skills-grid { gap: 22px 18px; }
+      .skill-group h3 { font-size: 14px; }
+      .skill-group p { font-size: 13px; }
+      .education { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .education-item { padding-left: 0; border: 0; }
+      .contact-inner { display: block; }
+      .contact h2 { font-size: 23px; }
+      .contact-actions { align-items: flex-start; margin-top: 20px; gap: 10px; }
+      .footer-inner { flex-direction: column; gap: 3px; }
+    }
+    @media (max-width: 360px) {
+      .nav-inner { gap: 8px; }
+      .brand { font-size: 15px; }
+      .nav-inner > .contact-link { padding: 6px 10px; }
+      .mobile-toggle { width: 40px; height: 40px; padding: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
 </head>
 <body>
-
-<!-- scroll progress -->
-<div id="progress"></div>
-
-<!-- ═══════════════════════════
-     NAVIGATION
-════════════════════════════ -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand">전수민 <em>/</em> Portfolio</a>
-    <div class="nav-links">
-      <a href="#about"      data-nav>소개</a>
-      <a href="#experience" data-nav>경력</a>
-      <a href="#projects"   data-nav>산출물</a>
-      <a href="#skills"     data-nav>스킬</a>
-    </div>
-    <a href="mailto:soominjun327@gmail.com" class="nav-cta">연락하기 →</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="6"  x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
-  </div>
-</nav>
-
-<!-- mobile drawer -->
-<div class="nav-drawer" id="drawer">
-  <div class="nav-drawer-panel">
-    <a href="#about"      class="drawer-link">소개</a>
-    <a href="#experience" class="drawer-link">경력</a>
-    <a href="#projects"   class="drawer-link">산출물</a>
-    <a href="#skills"     class="drawer-link">스킬</a>
-    <a href="mailto:soominjun327@gmail.com" class="drawer-cta">연락하기 →</a>
-  </div>
-</div>
-
-<!-- ═══════════════════════════
-     HERO
-════════════════════════════ -->
-<header class="hero" id="top">
-  <div class="hero-bg"></div>
-  <div class="hero-rule"></div>
-  <div class="wrap">
-
-    <div class="hero-eyebrow fu">Business Operations</div>
-
-    <h1 class="hero-name fu d1">전수민<span class="accent">.</span></h1>
-
-    <div class="hero-tagline fu d2">
-      <p>매출 성장과 고객 유지를 이끄는<br>사업운영 리더</p>
-      <p>손익과 고객 데이터를 바탕으로 개선 과제를 정하고,<br class="desktop-br"> 팀과 현장이 실행할 수 있는 운영 체계를 만듭니다.</p>
-    </div>
-
-    <p class="hero-career fu d2">총 경력 <span data-career-total>7년 7개월</span></p>
-    <p class="stats-caption fu d3">핵심 성과와 구축 경험</p>
-    <div class="hero-stats fu d3" aria-label="핵심 성과와 구축 경험">
-      <div class="hero-stat">
-        <div class="hs-value">4<span class="u">개 영역</span></div>
-        <div class="hs-label">통합 운영 매뉴얼 재설계</div>
-        <div class="hs-sub">오토스테이<br>입차, 설비, 고객 응대, 비상 대응</div>
+  <a class="skip" href="#main">본문으로 이동</a>
+  <header class="site-header"><div class="wrap nav-inner">
+    <a class="brand" href="#about" aria-label="전수민 포트폴리오 처음으로">전수민 <span>/</span> Portfolio</a>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="#about">소개</a><a href="#experience">경력</a><a href="#projects">산출물</a><a href="#skills">스킬</a></nav>
+    <a class="contact-link" href="#contact">연락하기 <span aria-hidden="true">→</span></a>
+    <button class="mobile-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="site-nav" title="메뉴 열기"><span></span><span></span><span></span></button>
+  </div></header>
+  <main id="main" tabindex="-1">
+    <section class="hero wrap" id="about" aria-labelledby="hero-name">
+      <p class="eyebrow">BUSINESS OPERATIONS</p>
+      <div class="hero-grid"><div>
+        <h1 id="hero-name">전수민</h1>
+        <p class="hero-title">매출 성장과 고객 유지를 이끄는 <span>사업운영 리더.</span></p>
+        <p class="hero-description"><span>손익과 고객 데이터를 바탕으로 개선 과제를 정하고,</span> <span>팀과 현장이 실행할 수 있는 운영 체계를 만듭니다.</span></p>
+        <p class="hero-role"><span>오토스테이 사업운영 팀장</span><span class="role-divider"> / </span><span>패스트파이브 영업 및 사업운영 팀장</span></p>
+        <p class="hero-career">총 경력 <span data-career-total>7년 8개월</span></p>
+      </div><aside class="hero-aside" aria-label="업무 접근 방식"><p>데이터로 문제를 정의하고<br>사람과 프로세스로<br>지속 가능한 변화를 만듭니다.</p><p class="aside-label">OPERATIONS<br>PEOPLE<br>SUSTAINABLE GROWTH</p></aside></div>
+      <div class="hero-metrics" aria-label="핵심 성과와 구축 경험">
+        <div class="metric"><p class="metric-value">4<span>개 영역</span></p><h2>통합 운영 매뉴얼 재설계</h2><p>오토스테이</p></div>
+        <div class="metric"><p class="metric-value">20<span>% 감소</span></p><h2>담당 팀 고객 이탈률</h2><p>패스트파이브 / 사업운영 팀장</p></div>
+        <div class="metric"><p class="metric-value">10<span>% 증가</span></p><h2>담당 팀 월 반복 매출(MRR)</h2><p>패스트파이브 / 사업운영 팀장</p></div>
+        <div class="metric"><p class="metric-value">10<span>% 이상 증가</span></p><h2>팀 매출</h2><p>패스트파이브 / 전략 파트장</p></div>
       </div>
-      <div class="hero-stat">
-        <div class="hs-value">20<span class="u">% 감소</span></div>
-        <div class="hs-label">담당 팀 고객 이탈률</div>
-        <div class="hs-sub">패스트파이브 / 사업운영 팀장<br>CRM 기반 리텐션 전략</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hs-value">10<span class="u">% 증가</span></div>
-        <div class="hs-label">담당 팀 월 반복 매출(MRR)</div>
-        <div class="hs-sub">패스트파이브 / 사업운영 팀장<br>성장 전략 기획 및 실행</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hs-value">10<span class="u">% 이상 증가</span></div>
-        <div class="hs-label">팀 매출</div>
-        <div class="hs-sub">패스트파이브 / 전략 파트장<br>데이터 분석과 CRM 기반 코칭</div>
-      </div>
-    </div>
-
-    <div class="hero-meta fu d4">
-      <a href="mailto:soominjun327@gmail.com">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-        </svg>
-        soominjun327@gmail.com
-      </a>
-      <span class="hm-dot"></span>
-      <span>+82 10 7457 7959</span>
-      <span class="hm-dot"></span>
-      <span>오토스테이 사업운영 팀장 / 패스트파이브 영업 및 사업운영 팀장</span>
-    </div>
-
-  </div>
-</header>
-
-<section class="featured-tools" aria-label="대표 산출물">
-  <div class="wrap">
-    <div class="ft-shell fu d5">
-      <div class="ft-copy">
-        <div class="ft-label">Featured Work</div>
-        <h2 class="ft-title">데이터를 판단과 실행으로<br>연결하는 운영 도구</h2>
-        <p class="ft-desc">
-          지점 성과, 고객 응대, 기상 위험을 분석해 운영 우선순위를 정합니다.
-          데모의 데이터와 수치는 가상이며, 실제 경력 성과와 구분됩니다.
-        </p>
-      </div>
-      <div class="ft-grid">
-        <a class="ft-card" href="https://soomin-portfolio-ops.vercel.app/" target="_blank" rel="noopener">
-          <div class="ft-num">01</div>
-          <h3>직영점 운영 대시보드</h3>
-          <p>지점별 매출과 운영 지표를 비교해 우선 점검 대상과 개선 기회를 판단합니다.</p>
-          <span>데모 보기 →</span>
-        </a>
-        <a class="ft-card" href="https://soomin-portfolio-cs.vercel.app/" target="_blank" rel="noopener">
-          <div class="ft-num">02</div>
-          <h3>채널톡 CS 대시보드</h3>
-          <p>상담 지연과 VOC, 담당자 편중을 분석해 우선 대응 과제를 정합니다.</p>
-          <span>데모 보기 →</span>
-        </a>
-        <a class="ft-card" href="https://soomin-portfolio-weatherops.vercel.app/" target="_blank" rel="noopener">
-          <div class="ft-num">03</div>
-          <h3>Weather Ops 대시보드</h3>
-          <p>기상 위험과 회복 현황을 바탕으로 현장 대응과 CRM 실행을 관리합니다.</p>
-          <span>데모 보기 →</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     ABOUT
-════════════════════════════ -->
-<section class="section" id="about">
-  <div class="wrap">
-
-    <div class="sec-label">About</div>
-    <h2 class="sec-heading reveal">성장과 고객 유지를<br>실행 가능한 운영 체계로 만듭니다</h2>
-
-    <div class="about-body reveal">
-      <p>
-        영업과 사업운영, 현장 운영을 아우르는 총 <span data-career-total>7년 7개월</span>의 경력을 쌓아왔습니다.
-        패스트파이브에서는 CRM 기반 고객 유지와 매출 성장을 이끌었고,
-        오토스테이에서는 구독 서비스의 손익, KPI, 현장 운영 기준을 관리하고 있습니다.
-      </p>
-      <p>
-        손익과 고객 데이터에서 개선 과제를 찾고, 팀과 현장의 실행 기준으로 구체화하는 것이 강점입니다.
-        영업 코칭과 성과 검토, 고객별 이탈 방지 활동, 운영 매뉴얼과 품질 관리를 통해
-        분석이 실제 업무의 변화로 이어지도록 일합니다.
-      </p>
-    </div>
-
-    <!-- 4 pillars -->
-    <div class="pillar-grid reveal">
-
-      <div class="pillar c-blue">
-        <div class="pillar-bar"></div>
-        <div class="pillar-icon">📊</div>
-        <div class="pillar-title">손익 관리와 매출 성장</div>
-        <div class="pillar-desc">
-          가동률, 객단가, MRR, 해지율의 추적 기준을 정하고,
-          구독 플랜별 공헌이익을 분석해 상품 구성 조정안을 실행합니다.
-        </div>
-      </div>
-
-      <div class="pillar c-red">
-        <div class="pillar-bar"></div>
-        <div class="pillar-icon">🔄</div>
-        <div class="pillar-title">CRM 기반 고객 유지</div>
-        <div class="pillar-desc">
-          CRM과 서비스 이용 데이터, VOC를 분석해 재계약 파이프라인을 관리하고
-          고객별 이탈 방지 활동을 실행합니다.
-        </div>
-      </div>
-
-      <div class="pillar c-green">
-        <div class="pillar-bar"></div>
-        <div class="pillar-icon">⚙️</div>
-        <div class="pillar-title">현장 운영 표준화</div>
-        <div class="pillar-desc">
-          입차, 설비, 고객 응대, 비상 대응의 운영 매뉴얼과
-          개정 관리 체계를 구축해 서비스 품질과 운영 리스크를 관리합니다.
-        </div>
-      </div>
-
-      <div class="pillar c-amber">
-        <div class="pillar-bar"></div>
-        <div class="pillar-icon">🛠️</div>
-        <div class="pillar-title">팀 성과와 파트너 관리</div>
-        <div class="pillar-desc">
-          매출과 전환 데이터에 기반한 코칭, OJT, 성과 검토를 운영합니다.
-          도급사 SLA와 월간 품질 감사로 외주 서비스 품질을 관리합니다.
-        </div>
-      </div>
-
-    </div>
-
-    <p class="evidence-caption reveal">패스트파이브에서의 추가 성과</p>
-    <div class="metrics-band reveal" aria-label="패스트파이브 추가 성과">
-      <div class="mb-item">
-        <div class="mb-num"><span class="c-blue">90%</span></div>
-        <div class="mb-label">전사 재계약률 달성에 기여<br>사업운영 팀장 재임 시</div>
-      </div>
-      <div class="mb-item">
-        <div class="mb-num"><span class="c-green">90% 이상</span></div>
-        <div class="mb-label">분기별 매출 목표 달성률 유지<br>2022년 / 전략 파트장</div>
-      </div>
-      <div class="mb-item">
-        <div class="mb-num"><span class="c-blue">1위</span></div>
-        <div class="mb-label">전사 매출 기여<br>2020년 / 영업 및 운영 매니저</div>
-      </div>
-      <div class="mb-item">
-        <div class="mb-num"><span class="c-blue">1위</span></div>
-        <div class="mb-label">전사 계약률<br>2021년 / 영업 및 운영 매니저</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     EXPERIENCE
-════════════════════════════ -->
-<section class="section" id="experience">
-  <div class="wrap">
-
-    <div class="sec-label">Experience</div>
-    <h2 class="sec-heading reveal">경력</h2>
-
-    <div class="exp-badge reveal">
-      <span class="live-dot"></span>
-      <span>총 경력 <span data-career-total>7년 7개월</span> / <span data-company-count>4</span>개 회사</span>
-    </div>
-    <p class="career-basis">경력 산정 기준: <span data-career-month>2026.09</span> / 입사월과 퇴사월 포함</p>
-
-    <div class="career-snapshot reveal">
-      <div class="career-card">
-        <div class="career-kicker">Autostay</div>
-        <h3>운영 체계 구축</h3>
-        <p>구독 플랜의 수익성을 분석하고, KPI와 현장 매뉴얼, 외주 품질 관리 기준을 구축했습니다.</p>
-      </div>
-      <div class="career-card">
-        <div class="career-kicker">Fastfive</div>
-        <h3>고객 유지와 매출 성장</h3>
-        <p>담당 팀 고객 이탈률 20% 감소와 MRR 10% 증가를 이끌고, 전사 재계약률 90% 달성에 기여했습니다.</p>
-      </div>
-      <div class="career-card">
-        <div class="career-kicker">Leadership</div>
-        <h3>성과 관리 리더십</h3>
-        <p>CRM 기반 코칭으로 팀 매출을 10% 이상 늘렸습니다. 매출 계획과 주간 성과 검토, OJT를 운영했습니다.</p>
-      </div>
-    </div>
-
-    <div class="timeline">
-
-      <!-- ── 오토스테이 ── -->
-      <div class="tl-item current reveal">
-        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-head">
-            <div class="tl-company">
-              오토스테이
-              <span class="tl-badge live" data-career-status="autostay">재직 중</span>
-            </div>
-            <div class="tl-meta">
-              <span data-career-period="autostay">2026.01 - 현재</span>
-              <span class="sep" aria-hidden="true">/</span>
-              <span data-career-duration="autostay">9개월</span>
-              <span class="sep" aria-hidden="true">/</span>
-              <span class="tl-tag">정규직</span>
-              <span class="tl-tag">사업운영 팀장</span>
-            </div>
-          </div>
-          <div class="tl-rule"></div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">1. P&amp;L 기반 수익성 관리 및 KPI 체계 구축</div>
-            <ul class="bullets">
+    </section>
+    <section class="section wrap" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title">경력 흐름</h2><p>영업과 사업운영, 현장 운영을 거치며<br>데이터와 현장을 연결하는 운영 리더로 성장했습니다.</p></div>
+      <p class="career-basis">총 <span data-company-count>4</span>개 회사 / <span data-career-month>2026.10</span> 기준 / 입사월과 퇴사월 포함</p>
+      <div class="career-row current">
+        <div class="career-company"><h3>오토스테이</h3><p data-career-period="autostay">2026.01 - 현재</p><p data-career-duration="autostay">10개월</p><span class="career-status live" data-career-status="autostay">재직 중</span></div>
+        <div class="career-body"><p class="career-role">사업운영 팀장</p><p class="career-summary">구독 플랜의 수익성을 분석하고, KPI와 현장 매뉴얼, 외주 품질 관리 기준을 구축했습니다. 입차, 설비, 고객 응대, 비상 대응 등 4개 영역의 통합 운영 매뉴얼을 재설계했습니다.</p>
+          <details class="career-details"><summary>오토스테이 상세 경력</summary><div class="detail-content"><p class="detail-period">사업운영팀 / 정규직</p><div class="detail-topic"><h4>1. P&amp;L 기반 수익성 관리 및 KPI 체계 구축</h4><ul class="bullets">
               <li>가동률, 객단가, MRR, 구독 해지율의 정의와 추적 기준을 수립하고 통합 운영 대시보드 구축</li>
               <li>ALL PASS와 단독 PASS 등 구독 플랜별 공헌이익과 수익성 차이를 분석하고 상품 구성 조정안을 수립해 실행</li>
-            </ul>
-          </div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">2. SOP 재정비 및 운영 프로세스 표준화</div>
-            <ul class="bullets">
+            </ul></div>
+<div class="detail-topic"><h4>2. SOP 재정비 및 운영 프로세스 표준화</h4><ul class="bullets">
               <li>입차, 설비, 고객 응대, 비상 대응 등 4개 영역의 통합 운영 매뉴얼 재설계</li>
               <li>Slack Canvas로 매뉴얼 개정 이력과 버전을 관리하고 현장 운영 기준 표준화</li>
-            </ul>
-          </div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">3. CX 개선 및 리텐션 운영 체계 구축</div>
-            <ul class="bullets">
+            </ul></div>
+<div class="detail-topic"><h4>3. CX 개선 및 리텐션 운영 체계 구축</h4><ul class="bullets">
               <li>예약부터 세차, 출차, 고객 응대까지 고객 여정의 불편 사항과 구독 해지 사유 분석</li>
               <li>분석 결과를 바탕으로 고객 유지 지표와 서비스 개선 우선순위 설정</li>
-            </ul>
-          </div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">4. 도급사 SLA 및 외주 품질관리 체계 구축</div>
-            <ul class="bullets">
+            </ul></div>
+<div class="detail-topic"><h4>4. 도급사 SLA 및 외주 품질관리 체계 구축</h4><ul class="bullets">
               <li>입차 유도, 세차 품질, 시설 청결에 대한 SLA 기준과 월간 품질 감사 체계 수립</li>
               <li>정해진 기준에 따라 도급사의 서비스 품질과 외주 운영 리스크 관리</li>
-            </ul>
-          </div>
+            </ul></div></div></details>
         </div>
       </div>
-
-      <!-- ── 패스트파이브 ── -->
-      <div class="tl-item reveal">
-        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-head">
-            <div class="tl-company">
-              패스트파이브
-              <span class="tl-badge" data-career-duration="fastfive">4년 7개월</span>
-            </div>
-            <div class="tl-meta">
-              <span data-career-period="fastfive">2019.07 - 2024.01</span>
-              <span class="sep" aria-hidden="true">/</span>
-              <span class="tl-tag">정규직</span>
-              <span class="tl-tag">영업 및 사업운영 팀장</span>
-            </div>
-          </div>
-          <div class="tl-rule"></div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">공유오피스그룹 사업운영팀 / 사업운영 팀장</div>
-            <div class="tl-sub-period">2023.01 — 2024.01</div>
-            <ul class="bullets">
+      <div class="career-row">
+        <div class="career-company"><h3>패스트파이브</h3><p data-career-period="fastfive">2019.07 - 2024.01</p><p data-career-duration="fastfive">4년 7개월</p></div>
+        <div class="career-body"><p class="career-role">영업 및 사업운영 팀장</p>
+          <ol class="role-path" aria-label="패스트파이브 역할 변화"><li><span class="role-period">2019.07 - 2021.12</span><span>영업 및 운영 매니저</span></li><li><span class="role-period">2022.01 - 2022.12</span><span>전략 파트장</span></li><li><span class="role-period">2023.01 - 2024.01</span><span>사업운영 팀장</span></li></ol>
+          <p class="career-summary">CRM 기반 리텐션 전략으로 담당 팀 고객 이탈률 20% 감소와 MRR 10% 증가를 이끌었습니다. 전략 파트장 재임 시에는 데이터 분석과 CRM 기반 코칭으로 팀 매출을 10% 이상 늘렸습니다.</p>
+          <details class="career-details"><summary>패스트파이브 상세 경력</summary><div class="detail-content"><p class="detail-period">정규직</p><div class="detail-topic"><h4>공유오피스그룹 사업운영팀 / 사업운영 팀장</h4><p class="detail-period">2023.01 - 2024.01</p><ul class="bullets">
               <li>CRM과 서비스 이용 데이터에 기반한 리텐션 전략으로 담당 팀 고객 이탈률 20% 감소, MRR 10% 증가</li>
               <li>Salesforce와 Pipedrive로 재계약 파이프라인과 고객 정보를 관리하고 전사 재계약률 90% 달성에 기여</li>
               <li>고객 만족도와 VOC를 분석해 고객 경험 지표와 개선 우선순위를 정하고 고객별 이탈 방지 활동 실행</li>
               <li>Service Cloud와 Zendesk의 고객 응대 데이터를 분석해 서비스 개선 과제를 도출하는 업무 절차 구축</li>
               <li>신규 및 기존 서비스 매뉴얼을 전면 개편하고 Notion과 Google Workspace를 활용해 SOP 관리</li>
-            </ul>
-          </div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">세일즈그룹 MA혁신팀 전략파트 / 전략 파트장</div>
-            <div class="tl-sub-period">2022.01 — 2022.12</div>
-            <ul class="bullets">
+            </ul></div>
+<div class="detail-topic"><h4>세일즈그룹 MA혁신팀 전략파트 / 전략 파트장</h4><p class="detail-period">2022.01 - 2022.12</p><ul class="bullets">
               <li>매니저별 매출과 전환 데이터를 분석하고 CRM 기반 코칭을 운영해 팀 매출 10% 이상 증가</li>
               <li>연간 매출 전망과 분기별 실행 계획을 수립하고 분기별 매출 목표 달성률 90% 이상 유지</li>
               <li>Salesforce 도입을 주도하고 고객 데이터 관리 기준을 정비해 영업 진행 현황의 가시성 개선</li>
               <li>영업 프로세스와 주간 성과 검토 체계를 구축하고 영업 KPI와 실행 과제 관리</li>
               <li>신규 입사자 OJT와 성과 피드백 절차를 설계하고 운영해 온보딩 및 코칭 체계 표준화</li>
-            </ul>
-          </div>
-
-          <div class="tl-sub">
-            <div class="tl-sub-title">공유오피스그룹 사업운영팀 / 영업 및 운영 매니저</div>
-            <div class="tl-sub-period">2019.07 — 2021.12</div>
-            <ul class="bullets">
+            </ul></div>
+<div class="detail-topic"><h4>공유오피스그룹 사업운영팀 / 영업 및 운영 매니저</h4><p class="detail-period">2019.07 - 2021.12</p><ul class="bullets">
               <li>2020년 전사 매출 기여 1위, 2021년 전사 계약률 1위 달성</li>
               <li>고객 요구사항을 분석하고 제안과 계약 협상을 수행하며 영업 기회 관리</li>
               <li>리드→상담→계약 전환 파이프라인을 구조화하고 단계별 지표와 개선 과제 정의</li>
               <li>지점 프로모션과 중개사 대상 B2B 제안을 기획하고 실행해 신규 잠재고객 및 계약 기회 확대</li>
               <li>고객 유형과 이용 목적에 따른 제안 전략을 수립하고 CRM 기반 영업 파이프라인 관리</li>
-            </ul>
-          </div>
+            </ul></div></div></details>
         </div>
       </div>
-
-      <!-- ── 인동에프엔 ── -->
-      <div class="tl-item reveal">
-        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-head">
-            <div class="tl-company">
-              인동에프엔
-              <span class="tl-badge" data-career-duration="indong">1년 10개월</span>
-            </div>
-            <div class="tl-meta">
-              <span data-career-period="indong">2017.05 - 2019.02</span>
-              <span class="sep" aria-hidden="true">/</span>
-              <span class="tl-tag">정규직</span>
-              <span class="tl-tag">영업관리 사원</span>
-            </div>
-          </div>
-          <div class="tl-rule"></div>
-          <div class="tl-sub">
-            <div class="tl-sub-title">영업본부 아울렛팀</div>
-            <ul class="bullets">
+      <div class="career-row">
+        <div class="career-company"><h3>인동에프엔</h3><p data-career-period="indong">2017.05 - 2019.02</p><p data-career-duration="indong">1년 10개월</p></div>
+        <div class="career-body"><p class="career-role">영업관리 사원</p><p class="career-summary">아울렛 채널의 매출과 판매 현황을 분석해 시즌별 판매 전략 수립을 지원했습니다. 재고 소진 프로모션을 기획하고 매출 및 재고 보고서를 작성했습니다.</p>
+          <details class="career-details"><summary>인동에프엔 상세 경력</summary><div class="detail-content"><p class="detail-period">영업본부 아울렛팀 / 정규직</p><div class="detail-topic"><h4>영업본부 아울렛팀</h4><ul class="bullets">
               <li>아울렛 채널의 주간 매출, 판매 현황, 카테고리별 실적을 분석해 시즌별 판매 전략 수립 지원</li>
               <li>상품별 판매 추이와 이월 재고를 분석하고 재고 소진을 위한 프로모션 기획 및 운영</li>
               <li>Excel로 매출 및 재고 보고서를 작성하고 영업 의사결정과 판매 효율 개선 과제 지원</li>
-            </ul>
-          </div>
+            </ul></div></div></details>
         </div>
       </div>
-
-      <!-- ── JYP ── -->
-      <div class="tl-item reveal">
-        <div class="tl-dot-wrap"><div class="tl-dot"></div></div>
-        <div class="tl-body">
-          <div class="tl-head">
-            <div class="tl-company">
-              제이와이피엔터테인먼트 (JYP)
-              <span class="tl-badge" data-career-duration="jyp">5개월</span>
-            </div>
-            <div class="tl-meta">
-              <span data-career-period="jyp">2016.04 - 2016.08</span>
-              <span class="sep" aria-hidden="true">/</span>
-              <span class="tl-tag">정규직</span>
-              <span class="tl-tag">운영 매니저</span>
-            </div>
-          </div>
-          <div class="tl-rule"></div>
-          <div class="tl-sub">
-            <div class="tl-sub-title">아티스트본부 매니지먼트팀</div>
-            <ul class="bullets">
+      <div class="career-row">
+        <div class="career-company"><h3>JYP</h3><p data-career-period="jyp">2016.04 - 2016.08</p><p data-career-duration="jyp">5개월</p></div>
+        <div class="career-body"><p class="career-role">운영 매니저</p><p class="career-summary">GOT7 해외 행사와 콘텐츠 촬영의 일정 및 현장 동선을 조율했습니다. 현지 관계자와 아티스트 스태프 간 협의를 통해 행사 운영을 지원했습니다.</p>
+          <details class="career-details"><summary>JYP 상세 경력</summary><div class="detail-content"><p class="detail-period">제이와이피엔터테인먼트 / 아티스트본부 매니지먼트팀 / 정규직</p><div class="detail-topic"><h4>아티스트본부 매니지먼트팀</h4><ul class="bullets">
               <li>GOT7 태국 광고 기자회견과 팬미팅에서 현지 관계자 및 아티스트 스태프 간 협의와 팬 동선을 조율하며 행사 운영 지원</li>
               <li>뮤직비디오, 앨범 재킷, 디지털 싱글 촬영의 일정과 출연진 및 스태프의 현장 동선을 관리하며 촬영 운영 지원</li>
-            </ul>
-          </div>
+            </ul></div></div></details>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     PROJECTS
-════════════════════════════ -->
-<section class="section" id="projects">
-  <div class="wrap">
-
-    <div class="sec-label">Data Tools</div>
-    <h2 class="sec-heading reveal">운영 의사결정을 빠르게 만드는<br>대표 산출물</h2>
-    <p class="sec-desc reveal">
-      실제 운영 판단에 사용하는 지표와 업무 흐름을 담았습니다.<br>
-      개인정보와 내부 데이터는 가상으로 대체했으며, 데모 수치는 경력에 기재한 성과와 별개입니다.
-    </p>
-
-    <div class="project-list">
-
-      <a class="proj-card p1 reveal"
-         href="https://soomin-portfolio-ops.vercel.app/"
-         target="_blank" rel="noopener">
-        <div class="proj-num">01</div>
-        <div>
-          <div class="proj-title">운영 KPI 대시보드</div>
-          <div class="proj-sub">[OPS] Operations Management Dashboard</div>
-          <p class="proj-desc">
-            매출, MRR, 가동률, 이탈률을 비교해 우선 점검 지점을 판단합니다.<br>
-            지점별 성과와 순매출 목표 달성률, 할인과 환불 위험을 함께 살펴 개선 과제를 정하도록 구성했습니다.
-          </p>
-          <div class="chips">
-            <span class="chip">운영 Cockpit</span>
-            <span class="chip">지점 우선순위</span>
-            <span class="chip">MRR, 가동률</span>
-            <span class="chip">수익성 비교</span>
-            <span class="chip">할인과 환불 위험</span>
-          </div>
-        </div>
-        <div class="proj-cta">
-          데모 보기 <span class="proj-arrow">→</span>
-        </div>
-      </a>
-
-      <a class="proj-card p2 reveal"
-         href="https://soomin-portfolio-cs.vercel.app/"
-         target="_blank" rel="noopener">
-        <div class="proj-num">02</div>
-        <div>
-          <div class="proj-title">채널톡 CS 대시보드</div>
-          <div class="proj-sub">[OPS] Channel Talk CS Analytics Dashboard</div>
-          <p class="proj-desc">
-            상담 현황과 장기 지연, VOC, 담당자 편중을 분석해 우선 대응 과제를 판단합니다.<br>
-            가상 데이터로 상담 상태와 후속 조치를 연결하고, 서비스 개선 과제를 검토하는 흐름을 담았습니다.
-          </p>
-          <div class="chips">
-            <span class="chip">CS Health</span>
-            <span class="chip">장기 지연</span>
-            <span class="chip">VOC 진단</span>
-            <span class="chip">담당자 편중</span>
-            <span class="chip">액션 큐</span>
-          </div>
-        </div>
-        <div class="proj-cta">
-          데모 보기 <span class="proj-arrow">→</span>
-        </div>
-      </a>
-
-      <a class="proj-card p3 reveal"
-         href="https://soomin-portfolio-weatherops.vercel.app/"
-         target="_blank" rel="noopener">
-        <div class="proj-num">03</div>
-        <div>
-          <div class="proj-title">Weather Ops 대시보드</div>
-          <div class="proj-sub">[OPS] Weather Operations Dashboard</div>
-          <p class="proj-desc">
-            기상 위험, 현장 조치, AS 차단, 회복률을 함께 살펴 지점별 대응 우선순위를 판단합니다.<br>
-            당일부터 이틀 뒤까지의 회복 흐름과 CRM 실행 대기를 확인해 운영팀과 마케팅팀의 후속 조치를 관리합니다.
-          </p>
-          <div class="chips">
-            <span class="chip">기상 리스크</span>
-            <span class="chip">AS 차단</span>
-            <span class="chip">회복 큐</span>
-            <span class="chip">CRM 실행</span>
-            <span class="chip">운영 타임라인</span>
-          </div>
-        </div>
-        <div class="proj-cta">
-          데모 보기 <span class="proj-arrow">→</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     SKILLS
-════════════════════════════ -->
-<section class="section" id="skills">
-  <div class="wrap">
-
-    <div class="sec-label">Skills & Education</div>
-    <h2 class="sec-heading reveal">스킬과 학력</h2>
-
-    <div class="skills-grid reveal">
-
-      <!-- skills -->
-      <div>
-        <div class="sk-group">
-          <div class="sk-label">사업운영 / Revenue Ops</div>
-          <div class="sk-tags">
-            <span class="sk-tag">P&amp;L 관리</span>
-            <span class="sk-tag">Revenue Operations</span>
-            <span class="sk-tag">KPI 체계 설계</span>
-            <span class="sk-tag">사업 운영</span>
-            <span class="sk-tag">운영 전략</span>
-            <span class="sk-tag">수익성 분석</span>
-            <span class="sk-tag">운영 효율성</span>
-          </div>
-        </div>
-        <div class="sk-group">
-          <div class="sk-label">CRM / 고객 유지</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Salesforce</span>
-            <span class="sk-tag">Pipedrive</span>
-            <span class="sk-tag">Zendesk</span>
-            <span class="sk-tag">리텐션 파이프라인</span>
-            <span class="sk-tag">재계약 프로그램</span>
-            <span class="sk-tag">VOC 분석</span>
-            <span class="sk-tag">Pain Point 분석</span>
-          </div>
-        </div>
-        <div class="sk-group">
-          <div class="sk-label">Service Operations</div>
-          <div class="sk-tags">
-            <span class="sk-tag">SOP 설계</span>
-            <span class="sk-tag">운영 매뉴얼</span>
-            <span class="sk-tag">Service Operations</span>
-            <span class="sk-tag">파트너 SLA</span>
-            <span class="sk-tag">품질 감사</span>
-            <span class="sk-tag">프로세스 표준화</span>
-            <span class="sk-tag">벤더 리스크 관리</span>
-          </div>
-        </div>
-        <div class="sk-group">
-          <div class="sk-label">도구와 플랫폼</div>
-          <div class="sk-tags">
-            <span class="sk-tag">Notion</span>
-            <span class="sk-tag">Slack Canvas</span>
-            <span class="sk-tag">Google Workspace</span>
-            <span class="sk-tag">Microsoft 365</span>
-            <span class="sk-tag">Excel</span>
-            <span class="sk-tag">PowerPoint</span>
-          </div>
-        </div>
-        <div class="sk-group">
-          <div class="sk-label">데이터 분석과 보고</div>
-          <div class="sk-tags">
-            <span class="sk-tag">데이터 분석</span>
-            <span class="sk-tag">운영 대시보드 설계</span>
-            <span class="sk-tag">전략 분석</span>
-            <span class="sk-tag">성과 리포팅</span>
-            <span class="sk-tag">운영 계획</span>
-          </div>
-        </div>
+    </section>
+    <section class="section wrap" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><h2 id="projects-title">대표 산출물</h2><p>지점 성과, 고객 응대, 기상 위험을 분석해<br>운영 의사결정과 후속 실행으로 연결하는 도구입니다.</p></div>
+      <p class="projects-note">오토스테이 운영 업무 기반 / 개인정보와 내부 데이터는 가상으로 대체했습니다. 데모 수치는 경력 성과와 별개입니다.</p>
+      <div class="project-grid">
+        <article class="project"><a class="preview-link" href="https://soomin-portfolio-ops.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="운영 KPI 대시보드 데모, 새 창"><img src="assets/ops-preview.jpg" width="1265" height="712" loading="lazy" alt="운영 KPI 데모의 매출, MRR, 가동률과 우선 점검 지점 화면"></a>
+          <div class="project-kicker">01 / OPERATIONS</div><h3>운영 KPI 대시보드</h3><p><span>매출, MRR, 가동률, 이탈률을 비교해 우선 점검 지점을 판단합니다.</span> 지점별 성과와 순매출 목표 달성률, 할인 및 환불 위험을 함께 검토합니다.</p><a class="text-link" href="https://soomin-portfolio-ops.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="운영 KPI 대시보드 데모 보기, 새 창">데모 보기 <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="project"><a class="preview-link" href="https://soomin-portfolio-cs.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="채널톡 CS 대시보드 데모, 새 창"><img src="assets/cs-preview.jpg" width="1265" height="712" loading="lazy" alt="채널톡 CS 데모의 상담 현황, 운영 점수와 지연 지표 화면"></a>
+          <div class="project-kicker">02 / CUSTOMER SUPPORT</div><h3>채널톡 CS 대시보드</h3><p><span>상담 지연, VOC, 담당자 편중을 분석해 우선 대응 과제를 정합니다.</span> 가상 데이터로 상담 상태와 후속 조치를 연결하고 서비스 개선 과제를 검토합니다.</p><a class="text-link" href="https://soomin-portfolio-cs.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="채널톡 CS 대시보드 데모 보기, 새 창">데모 보기 <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="project"><a class="preview-link" href="https://soomin-portfolio-weatherops.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Weather Ops 대시보드 데모, 새 창"><img src="assets/weatherops-preview.jpg" width="1265" height="712" loading="lazy" alt="Weather Ops 데모의 기상 위험과 현장 대응 우선 확인 큐 화면"></a>
+          <div class="project-kicker">03 / WEATHER OPERATIONS</div><h3>Weather Ops 대시보드</h3><p><span>기상 위험, 현장 조치, AS 차단, 회복률로 대응 우선순위를 정합니다.</span> 당일부터 이틀 뒤까지의 회복 흐름과 CRM 실행 대기를 확인해 후속 조치를 관리합니다.</p><a class="text-link" href="https://soomin-portfolio-weatherops.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Weather Ops 대시보드 데모 보기, 새 창">데모 보기 <span aria-hidden="true">→</span></a>
+        </article>
       </div>
-
-      <!-- education -->
-      <div class="edu-col">
-        <div class="edu-card">
-          <div class="edu-school">전북대학교</div>
-          <div class="edu-major">주거환경학과</div>
-          <div class="edu-period">2009.03 - 2016.08 / 졸업</div>
-        </div>
-        <div class="edu-card exchange">
-          <div class="edu-school">영국 셰필드대학교</div>
-          <div class="edu-major">
-            교환학생 파견
-            <span class="exchange-badge">Exchange</span>
-          </div>
-          <div class="edu-period">2014.03 - 2014.08 / 파견</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-school">완산고등학교</div>
-          <div class="edu-major">인문계</div>
-          <div class="edu-period">2006.03 - 2009.02 / 졸업</div>
-        </div>
-        <div class="edu-card lang">
-          <div class="edu-school">언어</div>
-          <div class="edu-major">영어 / 일상 회화</div>
-          <div class="edu-period">Korean (Native) / English (Conversational)</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     CONTACT
-════════════════════════════ -->
-<section class="contact" id="contact">
-  <div class="contact-bg"></div>
-  <div class="wrap">
-
-    <div class="ct-label">Get in touch</div>
-    <h2 class="ct-heading">사업운영 리더<br>포지션 제안을 기다립니다</h2>
-    <p class="ct-sub">
-      손익과 고객 데이터를 실행으로 연결하고, 팀과 현장의 운영 기준을 정립하는 역할에 기여하고 싶습니다.
-      사업운영, 고객 유지, 영업 전략과 팀 성과 관리에 관한 채용 제안 및 협업 문의를 기다립니다.
-    </p>
-    <div class="ct-btns">
-      <a class="ct-btn primary" href="mailto:soominjun327@gmail.com">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-        </svg>
-        이메일 보내기 →
-      </a>
-      <a class="ct-btn outline" href="tel:+821074577959">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.58 2.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        +82 10 7457 7959
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════
-     FOOTER
-════════════════════════════ -->
-<footer class="footer">
-  <div class="footer-inner">
-    <span>© <span data-current-year>2026</span> 전수민 / Portfolio</span>
-    <span>Built with HTML / CSS / JavaScript</span>
-  </div>
-</footer>
-
-<!-- ═══════════════════════════
-     JAVASCRIPT
-════════════════════════════ -->
-<script id="career-data">
+    </section>
+    <section class="section wrap" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading"><h2 id="skills-title">업무 역량과 도구</h2><p>분석부터 고객 관리, 현장 운영, 팀 성과 관리까지<br>업무의 목적에 맞는 도구와 실행 기준을 설계합니다.</p></div>
+      <div class="skills-grid"><div class="skill-group"><h3>손익과 성과 관리</h3><p>P&amp;L 관리, 수익성 분석<br>KPI 체계 설계, 운영 계획<br>데이터 분석, 성과 리포팅<br>운영 대시보드 설계</p></div><div class="skill-group"><h3>CRM과 고객 유지</h3><p>Salesforce, Pipedrive<br>Service Cloud, Zendesk<br>재계약 파이프라인 관리<br>VOC 분석, 고객별 이탈 방지</p></div><div class="skill-group"><h3>운영 표준화와 리더십</h3><p>SOP 설계, 운영 매뉴얼<br>파트너 SLA, 품질 감사<br>벤더 리스크 관리<br>영업 코칭, OJT, 성과 검토</p></div><div class="skill-group"><h3>협업과 보고</h3><p>Notion, Slack Canvas<br>Google Workspace<br>Microsoft 365<br>Excel, PowerPoint</p></div></div>
+    </section>
+    <section class="section wrap" aria-labelledby="education-title"><div class="education"><h2 id="education-title">학력</h2><div class="education-item"><h3>전북대학교</h3><p>주거환경학과 / 졸업</p><p>2009.03 - 2016.08</p></div><div class="education-item"><h3>영국 셰필드대학교</h3><p>교환학생 파견</p><p>2014.03 - 2014.08</p></div></div><details class="education-more"><summary>기타 학력과 언어</summary><div>완산고등학교 / 인문계 졸업 / 2006.03 - 2009.02<br>한국어 / 모국어, 영어 / 일상 회화</div></details></section>
+    <section class="contact" id="contact" aria-labelledby="contact-title"><div class="wrap contact-inner"><div><h2 id="contact-title">함께 더 나은 운영을 만듭니다.</h2><p>손익과 고객 데이터를 실행으로 연결하고 팀과 현장의 운영 기준을 정립합니다.<br>사업운영, 고객 유지, 영업 전략과 팀 성과 관리에 관한 채용 제안 및 협업 문의를 기다립니다.</p></div><div class="contact-actions"><a class="contact-link" href="mailto:soominjun327@gmail.com">이메일 보내기 <span aria-hidden="true">→</span></a><a href="mailto:soominjun327@gmail.com">soominjun327@gmail.com</a><a href="tel:+821074577959">+82 10 7457 7959</a></div></div></section>
+  </main>
+  <footer class="wrap footer-inner"><span>© <span data-current-year>2026</span> 전수민 / Portfolio</span><span>Business Operations</span></footer>
+  <script id="career-data">
 const careerEntries = [
   { id: 'autostay', start: '2026-01', end: null },
   { id: 'fastfive', start: '2019-07', end: '2024-01' },
@@ -1753,7 +397,7 @@ function renderCareerDates(now = new Date()) {
     document.querySelectorAll('[data-career-status="' + entry.id + '"]').forEach(el => {
       el.textContent = entry.current ? '재직 중' : '재직 종료';
       el.classList.toggle('live', entry.current);
-      el.closest('.tl-item')?.classList.toggle('current', entry.current);
+      el.closest('.career-row')?.classList.toggle('current', entry.current);
     });
   });
   renderedCareerMonth = month;
@@ -1766,90 +410,25 @@ document.addEventListener('visibilitychange', () => {
 });
 setInterval(() => { if (!document.hidden) renderCareerDates(); }, 60000);
 </script>
-<script>
-/* ── scroll progress ── */
-const prog = document.getElementById('progress');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const p = h.scrollTop / (h.scrollHeight - h.clientHeight);
-  prog.style.width = (p * 100) + '%';
-}, { passive: true });
-
-/* ── mobile drawer ── */
-const hamburger = document.getElementById('hamburger');
-const drawer    = document.getElementById('drawer');
-
-hamburger.addEventListener('click', () => {
-  const open = drawer.classList.toggle('open');
-  hamburger.setAttribute('aria-expanded', open);
-});
-
-// close on backdrop click
-drawer.addEventListener('click', e => {
-  if (e.target === drawer) drawer.classList.remove('open');
-});
-
-// close on link click
-document.querySelectorAll('.drawer-link, .drawer-cta').forEach(a => {
-  a.addEventListener('click', () => drawer.classList.remove('open'));
-});
-
-/* ── reveal on scroll ── */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      revealObs.unobserve(e.target);
+  <script>
+    document.documentElement.classList.add('js');
+    const menuToggle = document.querySelector('.mobile-toggle');
+    const navigation = document.getElementById('site-nav');
+    function setMenu(open) {
+      navigation.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+      menuToggle.title = open ? '메뉴 닫기' : '메뉴 열기';
     }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
-
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.style.transitionDelay = (i % 4) * 0.055 + 's';
-  revealObs.observe(el);
-});
-
-/* ── counter animation ── */
-function runCounter(el) {
-  const target = parseInt(el.dataset.count, 10);
-  const prefix = el.dataset.prefix || '';
-  const suffix = el.dataset.suffix || '';
-  const span   = el.querySelector('span');
-  let   cur    = 0;
-  const inc    = target / 44;
-  const timer  = setInterval(() => {
-    cur = Math.min(cur + inc, target);
-    const val = Math.round(cur);
-    if (span) span.textContent = prefix + val + suffix;
-    else      el.textContent   = prefix + val + suffix;
-    if (cur >= target) clearInterval(timer);
-  }, 28);
-}
-
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { runCounter(e.target); counterObs.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
-
-/* ── active nav ── */
-const sectionEls = document.querySelectorAll('section[id], header[id]');
-const navAs      = document.querySelectorAll('[data-nav]');
-
-const navObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navAs.forEach(a =>
-        a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id)
-      );
-    }
-  });
-}, { threshold: 0.35 });
-
-sectionEls.forEach(s => navObs.observe(s));
-</script>
-
+    menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
+    navigation.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') { setMenu(false); menuToggle.focus(); }
+    });
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.nav-inner') && menuToggle.getAttribute('aria-expanded') === 'true') setMenu(false);
+    });
+    window.matchMedia('(max-width: 600px)').addEventListener('change', () => setMenu(false));
+  </script>
 </body>
 </html>
